@@ -3,17 +3,15 @@ using UnityEngine;
 namespace River {
 public abstract class ADriftingPattern {
 
-    protected float minZ, maxZ;
-    protected float minSpeed, maxSpeed, curSpeed;
-
-    public ADriftingPattern(float minZ, float maxZ, float minSpeed, float maxSpeed) {
-        this.minZ = minZ;
-        this.maxZ = maxZ;
-        this.minSpeed = minSpeed;
-        this.maxSpeed = maxSpeed;
-    }
+    protected DriftingPatternData setting;
+    protected float curSpeed;
 
     public abstract void UpdatePosition(Transform transform);
+
+    public void Init(DriftingPatternData data) {
+        setting = data;
+        curSpeed = UnityEngine.Random.Range(setting.minSpeed, setting.maxSpeed);
+    }
 
 }
 

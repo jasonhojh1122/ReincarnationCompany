@@ -34,6 +34,7 @@ public class JoyStick : MonoBehaviour {
             ToggleImage(false);
             InitHead();
         }
+
     }
 
     void InitHead() {

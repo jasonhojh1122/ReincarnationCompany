@@ -5,10 +5,9 @@ namespace River {
 
 public class DriftingItem : MonoBehaviour {
 
-    private SpriteRenderer spriteRenderer;
-    private DriftingItemData data;
-    // public UnityAction<Transform, float> UpdatePos;
-    private ADriftingPattern driftingPattern;
+    protected SpriteRenderer spriteRenderer;
+    protected DriftingItemData data;
+    protected ADriftingPattern driftingPattern;
 
     void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -27,6 +26,13 @@ public class DriftingItem : MonoBehaviour {
 
     public void SetDriftingPattern(ADriftingPattern pattern) {
         driftingPattern = pattern;
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.name == "RiverEnd") {
+            Destroy(gameObject);
+        }
     }
 
 }

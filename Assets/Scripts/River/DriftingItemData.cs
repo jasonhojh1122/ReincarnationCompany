@@ -1,6 +1,6 @@
 
 using UnityEngine;
-
+using System.Collections.Generic;
 
 namespace River {
 
@@ -13,13 +13,13 @@ public class DriftingItemData : ScriptableObject {
         OTHER
     }
 
-    public Sprite sprite;
     public string itemName;
+    public Sprite sprite;
     public Animator animator;
     public Type type;
     public float minSpeed;
     public float maxSpeed;
-    public float curSpeed;
+    // public List<DriftingPatternData> driftingPatternDatas;
 
 }
 
