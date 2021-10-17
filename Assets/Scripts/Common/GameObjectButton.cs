@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameObjectButton : MonoBehaviour
+public class GameObjectButton : MonoBehaviour, ITouchable
 {
-    public UnityEvent mouseDownEvent;
-    public UnityEvent mouseUpEvent;
+    public UnityEvent clickDownEvent;
+    public UnityEvent clickUpEvent;
 
-    private void OnMouseDown()
-    {
-        if (mouseDownEvent != null)
-        {
-            mouseDownEvent.Invoke();
+    public void Touched(Touch touch) {
+        if (touch.phase == TouchPhase.Began && clickDownEvent != null) {
+            clickDownEvent.Invoke();
         }
-    }
-    private void OnMouseUp()
-    {
-        if (mouseUpEvent != null)
-        {
-            mouseUpEvent.Invoke();
+        else if (touch.phase == TouchPhase.Ended && clickUpEvent != null) {
+            clickUpEvent.Invoke();
         }
     }
 }

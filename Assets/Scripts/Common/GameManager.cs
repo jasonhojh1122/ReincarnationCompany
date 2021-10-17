@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private Camera mainCamera;
-    [SerializeField] GameObject unpersistentUI;
+    [SerializeField] List<GameObject> unpersistentGameobjects;
     private AsyncOperation async = null;
 
     public void SetCameraPos(float xPos) {
@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     private IEnumerator LoadGameScene(string name) {
         async = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
         while (!async.isDone) {
-            Debug.Log(async.progress);
             yield return null;
         }
         OnGameSceneLoaded();
@@ -31,7 +30,9 @@ public class GameManager : MonoBehaviour
 
     private void OnGameSceneLoaded() {
         SetCameraPos(0);
-        unpersistentUI.SetActive(false);
+        foreach (GameObject go in unpersistentGameobjects) {
+            go.SetActive(false);
+        }
     }
 
 }

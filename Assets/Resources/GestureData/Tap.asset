@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f97a5a97b21c96499b2a1a8071cf066, type: 3}
-  m_Name: HumanSoul
+  m_Script: {fileID: 11500000, guid: 342a3257896b117409d32b19a21a8f3b, type: 3}
+  m_Name: Tap
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 858905f2ee9a93a44b6f77a31666e1dc, type: 3}
-  itemName: Human Soul
-  animator: {fileID: 0}
-  type: 0
-  minSpeed: 4
-  maxSpeed: 10
-  curSpeed: 0
+  gestureName: Tap
+  minCount: 4
+  maxCount: 4
+  indicateSprite: {fileID: 21300000, guid: 8a70a8135c25c3a419264b1c51d090c1, type: 3}
+  singleDuration: 10

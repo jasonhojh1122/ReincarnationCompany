@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfaa286e44b0ef418289126a9420574, type: 3}
   m_Name: Straight
   m_EditorClassIdentifier: 
-  className: Straight
+  patternName: Straight
   minZ: -5
   maxZ: 9
   minSpeed: 4
   maxSpeed: 10
-  priority: 10

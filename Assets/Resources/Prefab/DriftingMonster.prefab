@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2876620183299430523}
   - component: {fileID: 6485096054156740828}
   m_Layer: 0
-  m_Name: DriftingItemPrefab
-  m_TagString: Untagged
+  m_Name: DriftingMonster
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,5 +124,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 0.2}
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Size: {x: 3, y: 3, z: 0.3951288}
+  m_Center: {x: 0, y: 1.4999999, z: -0.09756431}
