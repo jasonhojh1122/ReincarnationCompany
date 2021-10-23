@@ -7,4 +7,5 @@ public class ShopItemData : ScriptableObject {
     public string itemName;
     public string description;
     public Animator animator;
+    public float price;
 }

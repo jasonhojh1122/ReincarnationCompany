@@ -7,15 +7,14 @@ public class TouchManager : MonoBehaviour {
     [SerializeField] private Gesture.GestureManager gestureManager;
 
     private void Update() {
-        if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch(0);
-            Debug.Log("Touched");
 
+        for (int i = 0; i < Input.touchCount; i++) {
+            Touch touch = Input.GetTouch(i);
             if (ProcessTouchOnUI(touch)) {
-                return;
+                continue;
             }
             else if (ProcessTouchOnGameObject(touch)) {
-                return;
+                continue;
             }
             else {
                 gestureManager.UpdateTouch(touch);
