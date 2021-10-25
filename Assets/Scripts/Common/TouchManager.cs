@@ -11,12 +11,15 @@ public class TouchManager : MonoBehaviour {
         for (int i = 0; i < Input.touchCount; i++) {
             Touch touch = Input.GetTouch(i);
             if (ProcessTouchOnUI(touch)) {
+                Debug.Log("UI");
                 continue;
             }
             else if (ProcessTouchOnGameObject(touch)) {
+                Debug.Log("GameObject");
                 continue;
             }
             else {
+                Debug.Log("Gesture");
                 gestureManager.UpdateTouch(touch);
             }
         }
@@ -39,9 +42,9 @@ public class TouchManager : MonoBehaviour {
     }
 
     bool ProcessTouchOnGameObject(Touch touch) {
-        Ray raycast = Camera.main.ScreenPointToRay(touch.position);
-        RaycastHit hit;
-        if (Physics.Raycast(raycast, out hit)) {
+        // Ray2D raycast = Camera.main.ScreenPointToRay2D(touch.position);
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
+        if (hit.collider != null) {
             ITouchable touchable = hit.collider.gameObject.GetComponent<ITouchable>();
             if (touchable == null) {
                 return false;

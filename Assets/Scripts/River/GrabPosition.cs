@@ -4,49 +4,62 @@ using UnityEngine;
 public class GrabPosition : MonoBehaviour {
 
     [SerializeField] Gesture.GestureManager gestureManager;
-    Collider col;
+    [SerializeField] Boat boat;
+    Collider2D col;
     River.DriftingItem driftingItem;
     Gesture.AGesture gesture;
 
     private void Start() {
         gestureManager = FindObjectOfType<Gesture.GestureManager>();
-        col = GetComponent<Collider>();
+        col = GetComponent<Collider2D>();
     }
 
-
-    private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "Monster") {
-            Debug.Log("Grabbed");
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Monster" || other.gameObject.tag == "Ingredient") {
             Grab(other.gameObject);
         }
     }
 
     void Grab(GameObject go) {
             driftingItem = go.GetComponent<River.DriftingItem>();
-            driftingItem.ToggleDrifting(false);
+            if (driftingItem.IsGrabbed())
+                return;
+
+            driftingItem.ToggleDrifting();
             driftingItem.transform.SetParent(this.transform);
             driftingItem.transform.localPosition = Vector3.zero;
             driftingItem.Grab();
 
             gesture = driftingItem.GetGesture();
-            gesture.OnFailed += EnemyFailed;
-            gesture.OnSatisfied += LetGo;
+            if (go.gameObject.tag == "Monster") {
+                gesture.OnFailed += MonsterFailed;
+            }
+            gesture.OnFailed += Failed;
+            gesture.OnFailed += driftingItem.GestureFailed;
+
+            gesture.OnSatisfied += Satisfied;
+            gesture.OnSatisfied += driftingItem.GestureSatisfied;
+
             gestureManager.Enqueue(gesture);
 
             col.enabled = false;
     }
 
-    public void EnemyFailed() {
-        Debug.Log("Failed");
-        driftingItem.ToggleDrifting(true);
+    public void SetBoat(Boat boat) {
+        this.boat = boat;
+    }
+
+    public void MonsterFailed() {
+        boat.AddToLife(-1);
+    }
+
+    public void Failed() {
         col.enabled = true;
     }
 
-    public void LetGo() {
-        Debug.Log("LetGo");
-        driftingItem.ToggleDrifting(true);
-        driftingItem.transform.SetParent(null);
+    public void Satisfied() {
         col.enabled = true;
+        boat.AddToMoney(driftingItem.GetData().pikeUpPrice);
     }
 
 

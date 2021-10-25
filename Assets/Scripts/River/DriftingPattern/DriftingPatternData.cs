@@ -6,8 +6,8 @@ namespace River {
 public class DriftingPatternData : ScriptableObject {
 
     public string patternName;
-    public float minZ;
-    public float maxZ;
+    public float minY;
+    public float maxY;
     public float minSpeed;
     public float maxSpeed;
 

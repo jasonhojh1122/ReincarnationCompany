@@ -7,8 +7,12 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private Camera mainCamera;
-    [SerializeField] List<GameObject> unpersistentGameobjects;
+    [SerializeField] UIManager uiManager;
     private AsyncOperation async = null;
+
+    private void Start() {
+        uiManager = GetComponent<UIManager>();
+    }
 
     public void SetCameraPos(float xPos) {
         Vector3 newPos = mainCamera.transform.position;
@@ -25,14 +29,12 @@ public class GameManager : MonoBehaviour
         while (!async.isDone) {
             yield return null;
         }
-        OnGameSceneLoaded();
+        OnGameSceneLoaded(name);
     }
 
-    private void OnGameSceneLoaded() {
+    private void OnGameSceneLoaded(string name) {
         SetCameraPos(0);
-        foreach (GameObject go in unpersistentGameobjects) {
-            go.SetActive(false);
-        }
+        uiManager.ActivateNewUI(name+"UI");
     }
 
 }

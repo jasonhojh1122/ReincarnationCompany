@@ -11,8 +11,8 @@ public class DriftingItemGenerator : MonoBehaviour {
     [Header("Basic Settings")]
     [SerializeField] float minInterval;
     [SerializeField] float maxInterval;
-    [SerializeField] float minZ;
-    [SerializeField] float maxZ;
+    [SerializeField] float minY;
+    [SerializeField] float maxY;
 
 /*     [Header("Monster Settings")]
     [SerializeField] private DriftingItem monsterPrefab;
@@ -55,32 +55,11 @@ public class DriftingItemGenerator : MonoBehaviour {
 
     public DriftingItem Generate() {
         DriftingItem di = generators[0].Generate();
-        Vector3 pos = new Vector3(transform.position.x, 0, UnityEngine.Random.Range(minZ, maxZ));
+        Vector3 pos = new Vector3(transform.position.x, UnityEngine.Random.Range(minY, maxY), 0);
         di.transform.position = pos;
-        di.transform.rotation = Quaternion.Euler(45, 0, 0);
+        di.transform.rotation = Quaternion.identity;
         return di;
     }
-
-/*     public DriftingItem GenerateMonster() {
-
-        DriftingItem go = Instantiate(monsterPrefab, Vector3.zero, Quaternion.identity);
-
-        int itemID = UnityEngine.Random.Range(0, monsterPool.Count);
-        go.SetData(monsterPool[itemID]);
-
-        DriftingPatternData data = monsterPool[itemID].GetRandomDriftingPattern();
-        go.SetDriftingPattern(CreateDriftingPattern(data));
-        go.tag = "Monster";
-
-        return go;
-    }
-    private ADriftingPattern CreateDriftingPattern(DriftingPatternData data) {
-        System.Type patternType = driftingPatternTypePool.GetType(data);
-        ADriftingPattern pattern = (ADriftingPattern)System.Activator.CreateInstance(patternType);
-        pattern.Init(data);
-        return pattern;
-    }
- */
 
 }
 

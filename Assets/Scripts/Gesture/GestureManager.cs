@@ -15,8 +15,8 @@ public class GestureManager : MonoBehaviour {
         indicator.gameObject.SetActive(false);
         monitoring = false;
         queue = new Queue<AGesture>();
-
     }
+
     private void Update() {
         if (!monitoring && queue.Count > 0) {
             monitoring = true;
@@ -32,12 +32,10 @@ public class GestureManager : MonoBehaviour {
 
     IEnumerator MonitorGesture() {
         AGesture gesture = queue.Peek();
-        Debug.Log("Start Gesture");
         indicator.gameObject.SetActive(true);
         gesture.StartGesture(indicator);
 
         while (!gesture.IsFailed() && !gesture.IsSatisfied() ) {
-            Debug.Log("In Loop");
             yield return null;
         }
         if (gesture.IsFailed()) {
@@ -48,13 +46,11 @@ public class GestureManager : MonoBehaviour {
         }
         queue.Dequeue();
         indicator.gameObject.SetActive(false);
-        Debug.Log("set active to false");
         monitoring = false;
     }
 
     public void Enqueue(AGesture gesture) {
         queue.Enqueue(gesture);
-        Debug.Log("Enqued!");
     }
 
 }

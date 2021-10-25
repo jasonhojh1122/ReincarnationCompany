@@ -1,11 +1,11 @@
 using UnityEngine;
 
+namespace Shop {
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "ReincarnationCompany/ShopItemData", order = 0)]
 public class ShopItemData : ScriptableObject {
-    public Sprite sprite;
-    public string itemName;
-    public string description;
-    public Animator animator;
+    public BaseItemData baseData;
     public float price;
+}
+
 }

@@ -8,16 +8,18 @@ namespace River {
 public class DriftingItem : MonoBehaviour {
 
     protected SpriteRenderer spriteRenderer;
-    protected Collider col;
+    protected Collider2D col;
     protected DriftingItemData data;
     protected ADriftingPattern driftingPattern;
     protected AGesture gesture;
     protected bool drifting;
+    protected bool grabbed;
 
     void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        col = GetComponent<Collider>();
+        col = GetComponent<Collider2D>();
         drifting = true;
+        grabbed = false;
     }
 
     void Update() {
@@ -28,7 +30,11 @@ public class DriftingItem : MonoBehaviour {
 
     public void SetData(DriftingItemData data) {
         this.data = data;
-        spriteRenderer.sprite = data.sprite;
+        spriteRenderer.sprite = data.baseData.sprite;
+    }
+
+    public DriftingItemData GetData() {
+        return data;
     }
 
     public void SetDriftingPattern(ADriftingPattern driftingPattern) {
@@ -43,11 +49,11 @@ public class DriftingItem : MonoBehaviour {
         return gesture;
     }
 
-    public void ToggleDrifting(bool status) {
-        drifting = status;
+    public void ToggleDrifting() {
+        drifting = !drifting;
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.name == "RiverEnd") {
             Destroy(gameObject);
         }
@@ -55,10 +61,21 @@ public class DriftingItem : MonoBehaviour {
 
     public void Grab() {
         col.enabled = false;
+        grabbed = true;
     }
 
-    public void Sink() {
-        Debug.Log("Sink");
+    public virtual void GestureFailed() {
+        Debug.Log("Failed");
+        Destroy(this.gameObject);
+    }
+
+    public virtual void GestureSatisfied() {
+        Debug.Log("Failed");
+        Destroy(this.gameObject);
+    }
+
+    public bool IsGrabbed() {
+        return grabbed;
     }
 
 }
