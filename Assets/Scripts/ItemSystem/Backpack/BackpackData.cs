@@ -17,7 +17,7 @@ public class BackpackData {
     }
 
     public BackpackData(SerializableDict<string, int> backpack) {
-        this._backpack = backpack;
+        _backpack = backpack;
     }
 
     public void AddItemToBackpack(string itemName, int amount) {

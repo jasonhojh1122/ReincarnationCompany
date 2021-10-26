@@ -13,7 +13,6 @@ public class UserState {
 
     [SerializeField]
     public BackpackData backpack;
-    //public SerializableDict<string, int> backpack;
 
     [SerializeField]
     public int money;
@@ -28,9 +27,9 @@ public class UserState {
 
     public UserState() {
         curCharacter = "DefaultCharacter";
-        money = 0;
         usedCharacter = new SerializableHashSet<string>( new HashSet<string>() );
         backpack = new BackpackData();
+        money = 0;
     }
 
 }

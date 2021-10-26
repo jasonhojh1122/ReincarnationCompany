@@ -5,14 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     [SerializeField] private Camera mainCamera;
-    [SerializeField] UIManager uiManager;
+    [SerializeField] List<CanvasGroupFader> faders;
     private AsyncOperation async = null;
-
-    private void Start() {
-        uiManager = GetComponent<UIManager>();
-    }
 
     public void SetCameraPos(float xPos) {
         Vector3 newPos = mainCamera.transform.position;
@@ -29,12 +24,24 @@ public class GameManager : MonoBehaviour
         while (!async.isDone) {
             yield return null;
         }
-        OnGameSceneLoaded(name);
+        FadeOutUI();
+        OnGameSceneLoaded();
     }
 
-    private void OnGameSceneLoaded(string name) {
+    private void FadeOutUI() {
+        foreach (CanvasGroupFader cgf in faders) {
+            cgf.FadeOut();
+        }
+    }
+
+    private void FadeInUI() {
+        foreach (CanvasGroupFader cgf in faders) {
+            cgf.FadeIn();
+        }
+    }
+
+    private void OnGameSceneLoaded() {
         SetCameraPos(0);
-        uiManager.ActivateNewUI(name+"UI");
     }
 
 }

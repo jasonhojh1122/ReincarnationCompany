@@ -3,7 +3,17 @@ using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
 
-public class UserStateManager : MonoBehaviour {
+public sealed class UserStateManager {
+
+    private static UserStateManager _Instance = null;
+    public static UserStateManager Instance {
+        get {
+            if (_Instance == null) {
+                _Instance = new UserStateManager();
+            }
+            return _Instance;
+        }
+    }
 
     UserState state;
     string dest;
@@ -31,7 +41,13 @@ public class UserStateManager : MonoBehaviour {
         }
     }
 
-    void Awake() {
+    private UserStateManager() {
+        dest = Application.persistentDataPath + "/save.dat";
+        LoadState();
+        LogState();
+    }
+
+    /* void Awake() {
         dest = Application.persistentDataPath + "/save.dat";
         LoadState();
 
@@ -41,9 +57,9 @@ public class UserStateManager : MonoBehaviour {
         state.money = 10;
 
         SaveState();
-    }
+    } */
 
-    public void LoadState() {
+    void LoadState() {
         if (File.Exists(dest)) {
             string json = File.ReadAllText(dest);
             state = JsonUtility.FromJson<UserState>(json);
@@ -58,15 +74,11 @@ public class UserStateManager : MonoBehaviour {
         File.WriteAllText(dest, json);
     }
 
-    public void AddToBackpack(string name, int amount) {
-
-    }
-
     void LogState() {
-        Debug.Log(state.curCharacter);
+        Debug.Log(CurCharacter);
 
         string log = "";
-        HashSet<string> usedCharacter = state.usedCharacter.ToHashSet();
+        HashSet<string> usedCharacter = UsedCharacter;
         foreach (string s in usedCharacter) {
             log += s;
             log += ", ";
@@ -79,7 +91,7 @@ public class UserStateManager : MonoBehaviour {
             log += pair.Key + ":" + pair.Value.ToString() + ", ";
         }
         Debug.Log("Backpack: " + log);
-        Debug.Log(state.money.ToString());
+        Debug.Log("Money: " + Money.ToString());
     }
 
 }

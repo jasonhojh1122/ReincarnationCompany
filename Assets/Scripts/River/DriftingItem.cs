@@ -53,11 +53,11 @@ public class DriftingItem : MonoBehaviour {
         drifting = !drifting;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    /* private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.name == "RiverEnd") {
             Destroy(gameObject);
         }
-    }
+    } */
 
     public void Grab() {
         col.enabled = false;
