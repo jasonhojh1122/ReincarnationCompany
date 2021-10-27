@@ -1,12 +1,23 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace River {
+public class Generator : MonoBehaviour {
 
-public class MonsterGenerator : Generator {
+    [SerializeField] protected DriftingItem prefab;
+    [SerializeField] protected List<DriftingItemData> itemPool;
+    protected DriftingPatternPool driftingPatternPool;
+    protected Gesture.GesturePool gesturePool;
 
-    /* public override DriftingItem Generate() {
+    public void SetDriftingPatternPool(DriftingPatternPool pool) {
+        driftingPatternPool = pool;
+    }
+
+    public void SetGesturePool(Gesture.GesturePool pool) {
+        gesturePool = pool;
+    }
+
+    public DriftingItem Generate() {
 
         DriftingItem go = Instantiate(prefab, Vector3.zero, Quaternion.identity);
 
@@ -20,7 +31,7 @@ public class MonsterGenerator : Generator {
         go.SetGesture(gesturePool.InstantiateGesture(gestureData));
 
         return go;
-    } */
+    }
 
 }
 

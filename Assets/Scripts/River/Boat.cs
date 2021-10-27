@@ -7,12 +7,11 @@ public class Boat : MonoBehaviour {
     [SerializeField] int life;
     [SerializeField] int money;
     [SerializeField] List<GrabPosition> grabPositions;
-    [SerializeField] TextMeshProUGUI lifeText;
+    [SerializeField] BoatLife boatLife;
     [SerializeField] TextMeshProUGUI moneyText;
 
 
     private void Start() {
-        lifeText.text = life.ToString();
         moneyText.text = money.ToString();
         foreach (GrabPosition gp in grabPositions) {
             gp.SetBoat(this);
@@ -20,8 +19,7 @@ public class Boat : MonoBehaviour {
     }
 
     public void AddToLife(int amount) {
-        life += amount;
-        lifeText.text = life.ToString();
+        boatLife.AddToLife(amount);
     }
 
     public void AddToMoney(int amount) {

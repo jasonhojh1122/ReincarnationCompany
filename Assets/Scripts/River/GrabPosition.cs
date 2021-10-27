@@ -31,13 +31,7 @@ public class GrabPosition : MonoBehaviour {
             driftingItem.Grab();
 
             gesture = driftingItem.GetGesture();
-            if (go.gameObject.tag == "Monster") {
-                gesture.OnFailed += MonsterFailed;
-            }
-            gesture.OnFailed += Failed;
             gesture.OnFailed += driftingItem.GestureFailed;
-
-            gesture.OnSatisfied += Satisfied;
             gesture.OnSatisfied += driftingItem.GestureSatisfied;
 
             gestureManager.Enqueue(gesture);
@@ -48,19 +42,5 @@ public class GrabPosition : MonoBehaviour {
     public void SetBoat(Boat boat) {
         this.boat = boat;
     }
-
-    public void MonsterFailed() {
-        boat.AddToLife(-1);
-    }
-
-    public void Failed() {
-        col.enabled = true;
-    }
-
-    public void Satisfied() {
-        col.enabled = true;
-        boat.AddToMoney(driftingItem.GetData().pikeUpPrice);
-    }
-
 
 }

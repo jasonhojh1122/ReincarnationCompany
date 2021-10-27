@@ -12,6 +12,7 @@ public class DriftingItem : MonoBehaviour {
     protected DriftingItemData data;
     protected ADriftingPattern driftingPattern;
     protected AGesture gesture;
+    protected Boat boat;
     protected bool drifting;
     protected bool grabbed;
 
@@ -31,6 +32,10 @@ public class DriftingItem : MonoBehaviour {
     public void SetData(DriftingItemData data) {
         this.data = data;
         spriteRenderer.sprite = data.baseData.sprite;
+    }
+
+    public void SetBoat(Boat boat) {
+        this.boat = boat;
     }
 
     public DriftingItemData GetData() {
@@ -53,12 +58,6 @@ public class DriftingItem : MonoBehaviour {
         drifting = !drifting;
     }
 
-    /* private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.name == "RiverEnd") {
-            Destroy(gameObject);
-        }
-    } */
-
     public void Grab() {
         col.enabled = false;
         grabbed = true;
@@ -70,7 +69,7 @@ public class DriftingItem : MonoBehaviour {
     }
 
     public virtual void GestureSatisfied() {
-        Debug.Log("Failed");
+        Debug.Log("Satisfied");
         Destroy(this.gameObject);
     }
 

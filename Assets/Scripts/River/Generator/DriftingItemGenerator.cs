@@ -23,7 +23,7 @@ public class DriftingItemGenerator : MonoBehaviour {
     [SerializeField] private List<DriftingItemData> ingredientPool;
  */
     [Header("Generators")]
-    [SerializeField] List<AGenerator> generators;
+    [SerializeField] List<Generator> generators;
 
     DriftingPatternPool driftingPatternTypePool;
     GesturePool gesturePool;
@@ -33,7 +33,7 @@ public class DriftingItemGenerator : MonoBehaviour {
         driftingPatternTypePool = new DriftingPatternPool();
         gesturePool = new GesturePool();
         toGenerate = true;
-        foreach (AGenerator g in generators) {
+        foreach (Generator g in generators) {
             g.SetDriftingPatternPool(driftingPatternTypePool);
             g.SetGesturePool(gesturePool);
         }

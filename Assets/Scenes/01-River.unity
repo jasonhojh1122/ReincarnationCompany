@@ -208,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 226890441}
   - component: {fileID: 226890442}
+  - component: {fileID: 226890444}
   - component: {fileID: 226890443}
   m_Layer: 0
   m_Name: Generator
@@ -247,7 +248,7 @@ MonoBehaviour:
   minY: -7
   maxY: 4.25
   generators:
-  - {fileID: 226890443}
+  - {fileID: 226890444}
 --- !u!114 &226890443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,13 +258,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 226890440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1812d11412bcb524c887ebd1b87d5658, type: 3}
+  m_Script: {fileID: 11500000, guid: 8daa98d80aefd0444b916d1134579a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  itemPool: []
+--- !u!114 &226890444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226890440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8daa98d80aefd0444b916d1134579a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1045671459355935020, guid: 6c853b34d654f0b41b7c450f2111fd17, type: 3}
   itemPool:
-  - {fileID: 11400000, guid: 86977640f6d3e7f45a8e5560217a0c9d, type: 2}
   - {fileID: 11400000, guid: b2983ddbf8ce39d4cba71b5c4888ec71, type: 2}
+  - {fileID: 11400000, guid: 86977640f6d3e7f45a8e5560217a0c9d, type: 2}
 --- !u!1 &245803642
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +703,7 @@ MonoBehaviour:
   - {fileID: 1474863586}
   - {fileID: 795992559}
   - {fileID: 1409065548}
-  lifeText: {fileID: 0}
+  boatLife: {fileID: 0}
   moneyText: {fileID: 1917628615}
 --- !u!1 &597874566
 GameObject:

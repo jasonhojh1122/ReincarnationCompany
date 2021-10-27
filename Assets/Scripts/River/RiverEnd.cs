@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class RiverEnd : MonoBehaviour {
 
-
-
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.name == "RiverEnd") {
-            Destroy(gameObject);
+    [SerializeField] BoatLife boatLife;
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Monster") {
+            boatLife.AddToLife(-1);
         }
     }
 }
