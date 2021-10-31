@@ -8,7 +8,8 @@ public class JoyStick : MonoBehaviour, ITouchable {
     RectTransform mount;
     Vector2 beginPos;
     int fingerID;
-    [SerializeField] Transform target;
+    [SerializeField] Rigidbody2D target;
+    // [SerializeField] Transform target;
 
     void Start() {
         mount = GetComponent<RectTransform>();
@@ -28,12 +29,10 @@ public class JoyStick : MonoBehaviour, ITouchable {
 
     protected void UpdatePos() {
         Vector2 offset = GetOffset();
-
-        Vector3 newPos = target.position;
-        newPos.x += horSpeed * offset.x * Time.deltaTime;
-        newPos.y += verSpeed * offset.y * Time.deltaTime;
-
-        target.position = newPos;
+        Vector2 vel = new Vector2();
+        vel.x += horSpeed * offset.x;
+        vel.y += verSpeed * offset.y;
+        target.MovePosition(target.position + vel * Time.deltaTime);
     }
 
     public void Touched(Touch touch) {

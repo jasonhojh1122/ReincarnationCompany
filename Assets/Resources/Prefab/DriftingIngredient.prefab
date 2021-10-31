@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1045671459355935021}
   - component: {fileID: 1747493315851624559}
   - component: {fileID: 2068612298212773358}
-  - component: {fileID: -3001234539087056051}
+  - component: {fileID: 8335150104763379762}
   m_Layer: 0
-  m_Name: DriftingMonster
-  m_TagString: Monster
+  m_Name: DriftingIngredient
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
---- !u!114 &-3001234539087056051
+--- !u!114 &8335150104763379762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,6 +141,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1045671459355935023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8ed4b242f18ba9449f31688172252e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 88f68629002c79349b797ce9861408cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

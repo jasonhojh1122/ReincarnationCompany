@@ -7,5 +7,6 @@ public class RiverEnd : MonoBehaviour {
         if (other.gameObject.tag == "Monster") {
             boatLife.AddToLife(-1);
         }
+        Destroy(other.gameObject);
     }
 }

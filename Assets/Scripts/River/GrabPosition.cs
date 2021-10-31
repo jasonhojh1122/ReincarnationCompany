@@ -34,9 +34,16 @@ public class GrabPosition : MonoBehaviour {
             gesture.OnFailed += driftingItem.GestureFailed;
             gesture.OnSatisfied += driftingItem.GestureSatisfied;
 
+            gesture.OnFailed += OnFinished;
+            gesture.OnSatisfied += OnFinished;
+
             gestureManager.Enqueue(gesture);
 
             col.enabled = false;
+    }
+
+    public void OnFinished() {
+        col.enabled = true;
     }
 
     public void SetBoat(Boat boat) {

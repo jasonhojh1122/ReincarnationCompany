@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CatHand
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: 22a1495161408d54aaaca6b7c4eb1cb4, type: 2}
-  minSpeed: 4
+  minSpeed: 6
   maxSpeed: 10
   pikeUpPrice: 100
   driftingPatternDatas:

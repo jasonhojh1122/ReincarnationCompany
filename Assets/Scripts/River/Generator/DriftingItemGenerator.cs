@@ -13,21 +13,19 @@ public class DriftingItemGenerator : MonoBehaviour {
     [SerializeField] float maxInterval;
     [SerializeField] float minY;
     [SerializeField] float maxY;
+    [SerializeField] Boat boat;
 
-/*     [Header("Monster Settings")]
-    [SerializeField] private DriftingItem monsterPrefab;
-    [SerializeField] private List<DriftingItemData> monsterPool;
-
-    [Header("Ingredient Settings")]
-    [SerializeField] private DriftingItem ingredientPrefab;
-    [SerializeField] private List<DriftingItemData> ingredientPool;
- */
     [Header("Generators")]
     [SerializeField] List<Generator> generators;
+    [SerializeField] CDF generatorCDF;
 
     DriftingPatternPool driftingPatternTypePool;
     GesturePool gesturePool;
     bool toGenerate;
+
+    private void OnEnable() {
+        generatorCDF.CalculateCDF();
+    }
 
     void Start() {
         driftingPatternTypePool = new DriftingPatternPool();
@@ -43,7 +41,7 @@ public class DriftingItemGenerator : MonoBehaviour {
     IEnumerator KeepGenerate() {
         while (true) {
             if (toGenerate) {
-                Generate();
+                Generate(generatorCDF.GetRandomID());
             }
             yield return Wait(UnityEngine.Random.Range(minInterval, maxInterval));
         }
@@ -53,11 +51,12 @@ public class DriftingItemGenerator : MonoBehaviour {
         yield return new WaitForSeconds(sec);
     }
 
-    public DriftingItem Generate() {
-        DriftingItem di = generators[0].Generate();
+    public DriftingItem Generate(int id) {
+        DriftingItem di = generators[id].Generate();
         Vector3 pos = new Vector3(transform.position.x, UnityEngine.Random.Range(minY, maxY), 0);
         di.transform.position = pos;
         di.transform.rotation = Quaternion.identity;
+        di.SetBoat(boat);
         return di;
     }
 

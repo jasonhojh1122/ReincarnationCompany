@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HumanHand
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: 49e147fa21a4ab545a38e95262c860fa, type: 2}
-  minSpeed: 4
+  minSpeed: 8
   maxSpeed: 10
   pikeUpPrice: 200
   driftingPatternDatas:

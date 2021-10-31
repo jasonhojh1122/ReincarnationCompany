@@ -6,6 +6,7 @@ namespace River {
 
         public override void GestureSatisfied() {
             boat.AddToMoney(data.pikeUpPrice);
+            Destroy(gameObject);
         }
 
         public override void GestureFailed() {

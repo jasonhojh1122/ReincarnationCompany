@@ -9,6 +9,8 @@ public class Boat : MonoBehaviour {
     [SerializeField] List<GrabPosition> grabPositions;
     [SerializeField] BoatLife boatLife;
     [SerializeField] TextMeshProUGUI moneyText;
+    [SerializeField] Transform moneyGainPrefab;
+    [SerializeField] Transform itemPickupPrefab;
 
 
     private void Start() {
@@ -25,6 +27,18 @@ public class Boat : MonoBehaviour {
     public void AddToMoney(int amount) {
         money += amount;
         moneyText.text = money.ToString();
+    }
+
+    public void AddToBackpack(string name) {
+        UserStateManager.Instance.Backpack.AddItemToBackpack(name, 1);
+    }
+
+    public void ShowMoneyGain() {
+
+    }
+
+    public void ShowItemPickup() {
+
     }
 
 }

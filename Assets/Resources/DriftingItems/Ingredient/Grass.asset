@@ -12,18 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f97a5a97b21c96499b2a1a8071cf066, type: 3}
   m_Name: Grass
   m_EditorClassIdentifier: 
-  itemName: Grass
-  sprite: {fileID: 21300000, guid: 8a70a8135c25c3a419264b1c51d090c1, type: 3}
-  animator: {fileID: 0}
-  type: 1
-  pickUpPrice: 0
-  minSpeed: 4
-  maxSpeed: 10
+  baseData: {fileID: 11400000, guid: 5adfe3309fc29914c95fec3c9727588c, type: 2}
+  minSpeed: 6
+  maxSpeed: 12
+  pikeUpPrice: 0
   driftingPatternDatas:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 0925a786a78b1054c9bd99a877966d47, type: 2}
   driftingPatternCDF:
-    priority: 00000000
+    priority: 01000000
   gestureDatas:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 651479f2f9a0f17439d2eb9131bdb4da, type: 2}
   gestureCDF:
-    priority: 00000000
+    priority: 01000000

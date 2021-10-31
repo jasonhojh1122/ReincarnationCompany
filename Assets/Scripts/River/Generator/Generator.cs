@@ -6,8 +6,13 @@ public class Generator : MonoBehaviour {
 
     [SerializeField] protected DriftingItem prefab;
     [SerializeField] protected List<DriftingItemData> itemPool;
+    [SerializeField] CDF cdf;
     protected DriftingPatternPool driftingPatternPool;
     protected Gesture.GesturePool gesturePool;
+
+    private void Awake() {
+        cdf.CalculateCDF();
+    }
 
     public void SetDriftingPatternPool(DriftingPatternPool pool) {
         driftingPatternPool = pool;
@@ -21,7 +26,7 @@ public class Generator : MonoBehaviour {
 
         DriftingItem go = Instantiate(prefab, Vector3.zero, Quaternion.identity);
 
-        int itemID = UnityEngine.Random.Range(0, itemPool.Count);
+        int itemID = cdf.GetRandomID();
         go.SetData(itemPool[itemID]);
 
         DriftingPatternData patternData = itemPool[itemID].GetRandomDriftingPattern();
