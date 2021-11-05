@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class Boat : MonoBehaviour {
 
     [SerializeField] int life;
-    [SerializeField] int money;
     [SerializeField] List<GrabPosition> grabPositions;
     [SerializeField] BoatLife boatLife;
     [SerializeField] TextMeshProUGUI moneyText;
@@ -14,7 +13,6 @@ public class Boat : MonoBehaviour {
 
 
     private void Start() {
-        moneyText.text = money.ToString();
         foreach (GrabPosition gp in grabPositions) {
             gp.SetBoat(this);
         }
@@ -25,8 +23,7 @@ public class Boat : MonoBehaviour {
     }
 
     public void AddToMoney(int amount) {
-        money += amount;
-        moneyText.text = money.ToString();
+        UserStateManager.Instance.Money += amount;
     }
 
     public void AddToBackpack(string name) {

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] List<CanvasGroupFader> faders;
     private AsyncOperation async = null;
+    private string additiveScene;
 
     public void SetCameraPos(float xPos) {
         Vector3 newPos = mainCamera.transform.position;
@@ -19,13 +20,25 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadGameScene(name));
     }
 
-    private IEnumerator LoadGameScene(string name) {
-        async = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
+    public void UnloadScene() {
+        SetCameraPos(80.0f);
+        FadeInUI();
+        UserStateManager.Instance.SaveState();
+        UserStateManager.Instance.LogState();
+        SceneManager.UnloadSceneAsync(additiveScene);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("_Main"));
+    }
+
+    private IEnumerator LoadGameScene(string sceneName) {
+        additiveScene = sceneName;
+        async = SceneManager.LoadSceneAsync(additiveScene, LoadSceneMode.Additive);
         while (!async.isDone) {
             yield return null;
         }
         FadeOutUI();
-        OnGameSceneLoaded();
+        SetCameraPos(0);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(additiveScene));
+        Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
     }
 
     private void FadeOutUI() {
@@ -38,10 +51,6 @@ public class GameManager : MonoBehaviour
         foreach (CanvasGroupFader cgf in faders) {
             cgf.FadeIn();
         }
-    }
-
-    private void OnGameSceneLoaded() {
-        SetCameraPos(0);
     }
 
 }

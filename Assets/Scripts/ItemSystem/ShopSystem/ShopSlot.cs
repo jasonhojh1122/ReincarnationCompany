@@ -1,20 +1,26 @@
 
 using UnityEngine;
+using TMPro;
 
 namespace Shop {
-public class ShopSlot : UIButton {
+public class ShopSlot : ItemSlot {
 
-    Shop shop;
-    ShopItemData shopItemData;
+    [SerializeField] TextMeshProUGUI priceText;
+    public Shop shop;
+    public int price;
+    public ShopItemData shopItemData;
 
-    public void Init(Shop shop, ShopItemData shopItemData) {
-        this.shop = shop;
-        this.shopItemData = shopItemData;
-        clickUpEvent.AddListener(ShowInfo);
+    public override void Init(BaseItemData itemData) {
+        this.itemData = itemData;
+        itemImage.sprite = itemData.sprite;
+        button = GetComponent<UnityEngine.UI.Button>();
+        button.onClick.AddListener(delegate{ itemViewer.Show(itemData); });
+        button.onClick.AddListener(delegate{ shop.SetActiveItem(shopItemData); });
+        UpdateContent();
     }
 
-    public void ShowInfo() {
-        shop.ShowInfo(shopItemData);
+    public override void UpdateContent() {
+        priceText.text = price.ToString();
     }
 
 }

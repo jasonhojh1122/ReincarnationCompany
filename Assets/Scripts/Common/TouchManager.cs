@@ -11,15 +11,15 @@ public class TouchManager : MonoBehaviour {
         for (int i = 0; i < Input.touchCount; i++) {
             Touch touch = Input.GetTouch(i);
             if (ProcessTouchOnUI(touch)) {
-                Debug.Log("UI");
+                // Debug.Log("UI");
                 continue;
             }
             else if (ProcessTouchOnGameObject(touch)) {
-                Debug.Log("GameObject");
+                // Debug.Log("GameObject");
                 continue;
             }
             else {
-                Debug.Log("Gesture");
+                // Debug.Log("Gesture");
                 gestureManager.UpdateTouch(touch);
             }
         }
@@ -35,10 +35,12 @@ public class TouchManager : MonoBehaviour {
             ITouchable touchable = hits[0].gameObject.GetComponent<ITouchable>();
             if (touchable != null) {
                 touchable.Touched(touch);
-                return true;
             }
+            return true;
         }
-        return false;
+        else {
+            return false;
+        }
     }
 
     bool ProcessTouchOnGameObject(Touch touch) {

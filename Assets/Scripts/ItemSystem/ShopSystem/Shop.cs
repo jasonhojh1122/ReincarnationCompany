@@ -4,33 +4,36 @@ using System.Collections.Generic;
 
 namespace Shop {
 public class Shop : MonoBehaviour {
+    [SerializeField] TextMeshProUGUI countText;
+    ShopItemData sid;
 
-    [SerializeField] List<ShopItemData> shopItems;
-    [SerializeField] Transform row;
-    [SerializeField] TextMeshPro itemNameText;
-    [SerializeField] TextMeshPro itemDescriptionText;
-    [SerializeField] TextMeshPro itemPriceText;
-    [SerializeField] TextMeshPro countText;
-    int count;
+    int amount;
 
-    void Update() {
-        countText.text = count.ToString();
+    void Awake() {
+        amount = 1;
+        UpdateText();
     }
 
     public void AddToCount(int i) {
-        count += i;
-        count = Mathf.Clamp(i, 0, 10);
+        amount += i;
+        amount = Mathf.Clamp(amount, 0, 10);
+        UpdateText();
+    }
+
+    void UpdateText() {
+        countText.text = amount.ToString();
     }
 
     public void Purchase() {
-
+        if (UserStateManager.Instance.Money >= amount * sid.price) {
+            UserStateManager.Instance.Money -= amount * sid.price;
+            UserStateManager.Instance.Backpack.AddItemToBackpack(sid.baseData.name, amount);
+        }
     }
 
-    public void ShowInfo(ShopItemData itemData) {
-        count = 0;
-        itemNameText.text = itemData.baseData.itemName;
-        itemDescriptionText.text = itemData.baseData.description;
-        itemPriceText.text = "$ " + itemData.price.ToString();
+    public void SetActiveItem(ShopItemData sid) {
+        this.sid = sid;
+        amount = 1;
     }
 
 }

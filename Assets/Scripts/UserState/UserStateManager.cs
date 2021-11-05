@@ -74,7 +74,7 @@ public sealed class UserStateManager {
         File.WriteAllText(dest, json);
     }
 
-    void LogState() {
+    public void LogState() {
         Debug.Log(CurCharacter);
 
         string log = "";
