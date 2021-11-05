@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Grass
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: 5adfe3309fc29914c95fec3c9727588c, type: 2}
-  price: 0
+  price: 100

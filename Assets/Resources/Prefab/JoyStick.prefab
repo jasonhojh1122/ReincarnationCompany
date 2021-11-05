@@ -64,7 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeSpeed: 10
-  state: 1
+  defaultOn: 1
+  shouldPause: 0
 --- !u!1 &288817196789725817
 GameObject:
   m_ObjectHideFlags: 0

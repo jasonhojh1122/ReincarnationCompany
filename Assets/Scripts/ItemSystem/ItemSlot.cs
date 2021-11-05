@@ -6,9 +6,12 @@ public class ItemSlot : MonoBehaviour {
     [SerializeField] protected UnityEngine.UI.Image itemImage;
     public ItemViewer itemViewer;
 
-    UnityEngine.UI.Button button;
+    protected UnityEngine.UI.Button button;
 
     protected BaseItemData itemData;
+    public BaseItemData ItemData {
+        get => itemData;
+    }
 
     public virtual void Init(BaseItemData itemData) {
         this.itemData = itemData;
