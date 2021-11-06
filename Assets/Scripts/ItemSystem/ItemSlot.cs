@@ -5,9 +5,7 @@ using TMPro;
 public class ItemSlot : MonoBehaviour {
     [SerializeField] protected UnityEngine.UI.Image itemImage;
     public ItemViewer itemViewer;
-
     protected UnityEngine.UI.Button button;
-
     protected BaseItemData itemData;
     public BaseItemData ItemData {
         get => itemData;

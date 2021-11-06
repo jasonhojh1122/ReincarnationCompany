@@ -17,6 +17,8 @@ MonoBehaviour:
   monster:
   - {fileID: 11400000, guid: 22a1495161408d54aaaca6b7c4eb1cb4, type: 2}
   - {fileID: 11400000, guid: 49e147fa21a4ab545a38e95262c860fa, type: 2}
-  character: []
+  character:
+  - {fileID: 11400000, guid: 0e359806c9a5d104bbb0e3ac35a7f89c, type: 2}
+  - {fileID: 11400000, guid: e6d44b3c81eedfe4aa6faf9563685047, type: 2}
   shopItem:
   - {fileID: 11400000, guid: 5adfe3309fc29914c95fec3c9727588c, type: 2}

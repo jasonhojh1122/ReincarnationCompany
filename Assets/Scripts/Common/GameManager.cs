@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+    [SerializeField] Canvas canvas;
     [SerializeField] List<CanvasGroupFader> faders;
     private AsyncOperation async = null;
     private string additiveScene;
@@ -51,6 +52,16 @@ public class GameManager : MonoBehaviour
         foreach (CanvasGroupFader cgf in faders) {
             cgf.FadeIn();
         }
+    }
+
+    public void ToggleUI(bool state) {
+        canvas.gameObject.SetActive(state);
+    }
+
+    public void EndGame() {
+        Debug.Log("End Game");
+        UserStateManager.Instance.SaveState();
+        Application.Quit();
     }
 
 }
