@@ -25,7 +25,7 @@ public abstract class ItemViewer : MonoBehaviour {
         }
     }
 
-    public void Show(BaseItemData itemData) {
+    public virtual void Show(BaseItemData itemData) {
         imageDisplay.sprite = itemData.sprite;
         nameTextDisplay.text = itemData.itemName;
         descriptionTextDisplay.text = itemData.description;

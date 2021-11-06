@@ -15,7 +15,7 @@ public class ItemPool : ScriptableObject {
     public Dictionary<string, BaseItemData> characterPool;
     public Dictionary<string, BaseItemData> shopPool;
 
-    private void Start() {
+    private void OnEnable() {
         ingredientPool = new Dictionary<string, BaseItemData>();
         monsterPool = new Dictionary<string, BaseItemData>();
         characterPool = new Dictionary<string, BaseItemData>();
