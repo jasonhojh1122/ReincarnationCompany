@@ -26,7 +26,7 @@ public class UserState {
     }
 
     public UserState() {
-        curCharacter = "DefaultCharacter";
+        curCharacter = "無名人類";
         usedCharacter = new SerializableHashSet<string>( new HashSet<string>() );
         backpack = new BackpackData();
         money = 0;

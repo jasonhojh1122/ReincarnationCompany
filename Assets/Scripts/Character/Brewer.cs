@@ -64,7 +64,7 @@ public class Brewer : MonoBehaviour {
 
     IEnumerator Reincarnate() {
         gameManager.ToggleUI(false);
-        title.text = "You just succesfully incarnate into " + newCharacter + ".";
+        title.text = "你已經成功投胎為 " + newCharacter;
         UserStateManager.Instance.UsedCharacter.Add(UserStateManager.Instance.CurCharacter);
         UserStateManager.Instance.CurCharacter = newCharacter;
         player.UpdateSprite();

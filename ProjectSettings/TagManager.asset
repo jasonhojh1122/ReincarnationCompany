@@ -46,9 +46,12 @@ TagManager:
   - name: Background
     uniqueID: 4120846179
     locked: 0
+  - name: BehindPlayer
+    uniqueID: 1726399063
+    locked: 0
   - name: Player
     uniqueID: 2156253157
     locked: 0
-  - name: Object
+  - name: InFrontOfPlayer
     uniqueID: 3508338451
     locked: 0

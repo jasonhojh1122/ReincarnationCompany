@@ -5,10 +5,9 @@ namespace Shop {
 public class ShopViewer : ItemViewer {
 
     [SerializeField] Shop shop;
-    [SerializeField] List<ShopItemData> shopItems;
     public override void InitContent()
     {
-        foreach (ShopItemData sid in shopItems) {
+        foreach (ShopItemData sid in itemPool.shopItem) {
             ShopSlot slot = Instantiate<ItemSlot>(slotPrefab) as ShopSlot;
             slot.transform.SetParent(content, false);
             slot.price = sid.price;

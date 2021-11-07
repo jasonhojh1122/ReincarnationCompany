@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f97a5a97b21c96499b2a1a8071cf066, type: 3}
+  m_Name: "\u5927\u82B1\u66FC\u9640\u7F85"
+  m_EditorClassIdentifier: 
+  baseData: {fileID: 11400000, guid: 5adfe3309fc29914c95fec3c9727588c, type: 2}
+  minSpeed: 6
+  maxSpeed: 12
+  pikeUpPrice: 0
+  driftingPatternDatas:
+  - {fileID: 11400000, guid: 0925a786a78b1054c9bd99a877966d47, type: 2}
+  driftingPatternCDF:
+    priority: 01000000
+  gestureDatas:
+  - {fileID: 11400000, guid: 651479f2f9a0f17439d2eb9131bdb4da, type: 2}
+  gestureCDF:
+    priority: 01000000

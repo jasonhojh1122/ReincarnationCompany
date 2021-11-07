@@ -600,8 +600,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b19ef2332a1621c4ebf36b654cb305d7, type: 2}
+  m_sharedMaterial: {fileID: -3615859380845645575, guid: b19ef2332a1621c4ebf36b654cb305d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -682,6 +682,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6884553976125817419}
     m_Modifications:
+    - target: {fileID: 2498398296687495729, guid: cf53ccf8300b6c641a49f2588482a88f, type: 3}
+      propertyPath: m_text
+      value: "\u540D\u5B57"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498398296687495729, guid: cf53ccf8300b6c641a49f2588482a88f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b19ef2332a1621c4ebf36b654cb305d7, type: 2}
+    - target: {fileID: 2498398296687495729, guid: cf53ccf8300b6c641a49f2588482a88f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3615859380845645575, guid: b19ef2332a1621c4ebf36b654cb305d7, type: 2}
     - target: {fileID: 2498398297657129825, guid: cf53ccf8300b6c641a49f2588482a88f, type: 3}
       propertyPath: m_Name
       value: Display
@@ -770,6 +782,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2498398298326983821, guid: cf53ccf8300b6c641a49f2588482a88f, type: 3}
+      propertyPath: m_text
+      value: "\u8AAA\u660E\u8AAA\u660E\u8AAA\u660E\n\u8AAA\u660E\u8AAA\u660E\u8AAA\u660E\n\u8AAA\u660E\u8AAA\u660E\u8AAA\u660E\n\u8AAA\u660E\u8AAA\u660E\u8AAA\u660E"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498398298326983821, guid: cf53ccf8300b6c641a49f2588482a88f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b19ef2332a1621c4ebf36b654cb305d7, type: 2}
+    - target: {fileID: 2498398298326983821, guid: cf53ccf8300b6c641a49f2588482a88f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3615859380845645575, guid: b19ef2332a1621c4ebf36b654cb305d7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf53ccf8300b6c641a49f2588482a88f, type: 3}
 --- !u!224 &654564116 stripped
@@ -944,10 +968,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: "\u8CFC\u8CB7"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b19ef2332a1621c4ebf36b654cb305d7, type: 2}
+  m_sharedMaterial: {fileID: -3615859380845645575, guid: b19ef2332a1621c4ebf36b654cb305d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
