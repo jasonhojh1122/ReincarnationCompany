@@ -24,6 +24,7 @@ public class DriftingItemGenerator : MonoBehaviour {
     bool toGenerate;
 
     private void OnEnable() {
+        Debug.Log("AAAAAAA");
         generatorCDF.CalculateCDF();
     }
 

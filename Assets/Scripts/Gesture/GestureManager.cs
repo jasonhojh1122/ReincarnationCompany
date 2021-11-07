@@ -12,7 +12,7 @@ public class GestureManager : MonoBehaviour {
     bool monitoring;
 
     private void Start() {
-        indicator.gameObject.SetActive(false);
+        ToggleIndicator(false);
         monitoring = false;
         queue = new Queue<AGesture>();
     }
@@ -32,7 +32,7 @@ public class GestureManager : MonoBehaviour {
 
     IEnumerator MonitorGesture() {
         AGesture gesture = queue.Peek();
-        indicator.gameObject.SetActive(true);
+        ToggleIndicator(true);
         gesture.StartGesture(indicator);
 
         while (!gesture.IsFailed() && !gesture.IsSatisfied() ) {
@@ -45,12 +45,22 @@ public class GestureManager : MonoBehaviour {
             gesture.OnSatisfied();
         }
         queue.Dequeue();
-        indicator.gameObject.SetActive(false);
+        ToggleIndicator(false);
         monitoring = false;
     }
 
     public void Enqueue(AGesture gesture) {
         queue.Enqueue(gesture);
+    }
+
+    public void ToggleIndicator(bool state) {
+        indicator.gameObject.SetActive(state);
+    }
+
+    public void ClearQueue() {
+        StopAllCoroutines();
+        queue.Clear();
+        monitoring = false;
     }
 
 }

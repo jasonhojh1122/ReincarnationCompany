@@ -508,8 +508,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 691081234}
   m_HandleRect: {fileID: 691081233}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.8035714
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1895,8 +1895,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1765585878}
   m_HandleRect: {fileID: 1765585877}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.8035714
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2983,6 +2983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1157070071}
   - component: {fileID: 1157070072}
+  - component: {fileID: 1157070073}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -3007,7 +3008,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 560}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1157070072
 MonoBehaviour:
@@ -3031,8 +3032,22 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 130, y: 130}
   m_Spacing: {x: 20, y: 20}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Constraint: 1
+  m_ConstraintCount: 3
+--- !u!114 &1157070073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157070070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
 --- !u!1 &1171054701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,6 +3756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1706907021}
   - component: {fileID: 1706907022}
+  - component: {fileID: 1706907023}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -3765,7 +3781,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 560}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1706907022
 MonoBehaviour:
@@ -3789,8 +3805,22 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 130, y: 130}
   m_Spacing: {x: 20, y: 20}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Constraint: 1
+  m_ConstraintCount: 3
+--- !u!114 &1706907023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706907020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
 --- !u!1 &1713121477
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,6 +4701,7 @@ MonoBehaviour:
   canvas: {fileID: 207022180}
   faders:
   - {fileID: 1616615180}
+  gestureManager: {fileID: 1929867397}
 --- !u!4 &1929867396
 Transform:
   m_ObjectHideFlags: 0
@@ -5406,6 +5437,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6949165128628559477, guid: 2436a117caccb904e896abca3e031ca9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949165128638304979, guid: 2436a117caccb904e896abca3e031ca9, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6949165128799248570, guid: 2436a117caccb904e896abca3e031ca9, type: 3}

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] Canvas canvas;
     [SerializeField] List<CanvasGroupFader> faders;
+    [SerializeField] Gesture.GestureManager gestureManager;
     private AsyncOperation async = null;
     private string additiveScene;
 
@@ -28,6 +29,9 @@ public class GameManager : MonoBehaviour
         UserStateManager.Instance.LogState();
         SceneManager.UnloadSceneAsync(additiveScene);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("_Main"));
+        gestureManager.ToggleIndicator(false);
+        gestureManager.ClearQueue();
+        Time.timeScale = 1.0f;
     }
 
     private IEnumerator LoadGameScene(string sceneName) {

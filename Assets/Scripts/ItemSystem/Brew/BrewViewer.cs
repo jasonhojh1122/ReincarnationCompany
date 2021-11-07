@@ -33,16 +33,18 @@ public class BrewViewer : ItemViewer {
     }
 
     public void ReturnItem(BaseItemData itemData) {
-        UserStateManager.Instance.Backpack.AddItemToBackpack(itemData.itemName, -1);
+        UserStateManager.Instance.Backpack.AddItemToBackpack(itemData.itemName, 1);
         slotMap[itemData.itemName].UpdateContent();
     }
 
     public override void Show(BaseItemData itemData) {
         foreach (BrewDisplaySlot slot in displaySlots) {
             if (slot.IsEmpty) {
+                if (UserStateManager.Instance.Backpack.GetItemNum(itemData.itemName) < 0)
+                    return;
                 slot.SetItem(itemData);
                 slot.OnReturn.AddListener(delegate{ReturnItem(itemData);});
-                UserStateManager.Instance.Backpack.AddItemToBackpack(itemData.name, -1);
+                UserStateManager.Instance.Backpack.AddItemToBackpack(itemData.itemName, -1);
                 slotMap[itemData.itemName].UpdateContent();
                 break;
             }

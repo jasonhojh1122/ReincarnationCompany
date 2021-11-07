@@ -15,5 +15,34 @@ MonoBehaviour:
   baseData: {fileID: 11400000, guid: 0e359806c9a5d104bbb0e3ac35a7f89c, type: 2}
   rules:
   - ruleState: 0
+    itemData: {fileID: 11400000, guid: 7257836758f533a438b2338fb59b5cec, type: 2}
+    minAmount: 1
+    maxAmount: 1
+  - ruleState: 0
     itemData: {fileID: 11400000, guid: 5adfe3309fc29914c95fec3c9727588c, type: 2}
-    amount: 3
+    minAmount: 1
+    maxAmount: 1
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: 5177d5f6074c4f644b5d793970d64533, type: 2}
+    minAmount: 1
+    maxAmount: 1
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: f1f43e94cd457764d94517a524b4d4b9, type: 2}
+    minAmount: 1
+    maxAmount: 1
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: 511cbbc5f0f318543aa178e40c3bd85c, type: 2}
+    minAmount: 1
+    maxAmount: 1
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: bf6e3a3f84c76ab43aa018acae89a028, type: 2}
+    minAmount: 1
+    maxAmount: 1
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: cb92d0ad11c7cb040b92aca9007d7a95, type: 2}
+    minAmount: 1
+    maxAmount: 1
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: fc2aba3db2529b943a9b95cc5491e1f4, type: 2}
+    minAmount: 1
+    maxAmount: 1

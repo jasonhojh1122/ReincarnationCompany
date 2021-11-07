@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: "\u72D7"
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: bd9d155add343834c84e1b35e3c4d9d3, type: 2}
-  rules: []
+  rules:
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: 511cbbc5f0f318543aa178e40c3bd85c, type: 2}
+    minAmount: 1
+    maxAmount: 1

@@ -34,30 +34,53 @@ public class Brewer : MonoBehaviour {
                 ingredients.Add(slot.ItemData.itemName, 1);
             }
         }
+        Debug.Log("Ingredient");
+        foreach (KeyValuePair<string, int> p in ingredients) {
+            Debug.Log(p.Key + " " + p.Value);
+        }
 
         foreach (Character.CharacterData data in characterData) {
-            bool failed = false;
+            Debug.Log(data.baseData.itemName);
+            bool success = true;
             foreach (Character.Rule rule in data.rules) {
-                switch (rule.ruleState) {
-                    case Character.RuleState.INCLUDE:
-                        if (!ingredients.ContainsKey(rule.itemData.itemName)
-                                || ingredients[rule.itemData.itemName] != rule.amount ) {
-                            failed = true;
-                        }
-                        break;
-                    case Character.RuleState.EXCLUDE:
-                        if (ingredients.ContainsKey(rule.itemData.itemName)) {
-                            failed = true;
-                        }
-                        break;
-                }
-                if (failed) break;
+                success = RulePassed(rule, ingredients);
+                if (!success) break;
             }
-            if (!failed) {
+            if (success) {
                 newCharacter = data.baseData.itemName;
                 uiFader.FadeOut();
                 StartCoroutine(Reincarnate());
                 break;
+            }
+        }
+    }
+
+    bool RulePassed(Character.Rule rule, Dictionary<string, int> ingredients) {
+
+        if (rule.ruleState == Character.RuleState.INCLUDE) {
+            if (rule.itemData == null) {
+                Debug.Log(1);
+                return (rule.minAmount <= ingredients.Count) && (rule.maxAmount >= ingredients.Count);
+            }
+            else if (!ingredients.ContainsKey(rule.itemData.itemName)
+                    || ingredients[rule.itemData.itemName] < rule.minAmount
+                    || ingredients[rule.itemData.itemName] > rule.maxAmount ) {
+                Debug.Log(2);
+                return false;
+            }
+            else {
+                Debug.Log(3);
+                return true;
+            }
+        }
+        else {
+            if (ingredients.ContainsKey(rule.itemData.itemName)) {
+                Debug.Log(4);
+                return false;
+            }
+            else {
+                Debug.Log(5);
+                return true;
             }
         }
     }

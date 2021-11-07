@@ -14,7 +14,8 @@ public enum RuleState {
 public struct Rule {
     public RuleState ruleState;
     public BaseItemData itemData;
-    [Range(0,10)]public int amount;
+    [Range(0,10)] public int minAmount;
+    [Range(0,10)] public int maxAmount;
 }
 
 [CreateAssetMenu(fileName = "CharacterData", menuName = "ReincarnationCompany/CharacterData", order = 0)]
