@@ -45,7 +45,19 @@ public class TouchManager : MonoBehaviour {
 
     bool ProcessTouchOnGameObject(Touch touch) {
         // Ray2D raycast = Camera.main.ScreenPointToRay2D(touch.position);
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
+        foreach (RaycastHit2D hit in hits) {
+            if (hit.collider != null) {
+                ITouchable touchable = hit.collider.gameObject.GetComponent<ITouchable>();
+                if (touchable != null) {
+                    touchable.Touched(touch);
+                    return true;
+                }
+            }
+        }
+        return false;
+
+        /* RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
         if (hit.collider != null) {
             ITouchable touchable = hit.collider.gameObject.GetComponent<ITouchable>();
             if (touchable == null) {
@@ -58,7 +70,7 @@ public class TouchManager : MonoBehaviour {
         }
         else {
             return false;
-        }
+        } */
     }
 
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Monster
   - Ingredient
+  - Confiner
   layers:
   - Default
   - TransparentFX

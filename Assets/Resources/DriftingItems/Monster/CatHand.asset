@@ -22,5 +22,6 @@ MonoBehaviour:
     priority: 01000000
   gestureDatas:
   - {fileID: 11400000, guid: 651479f2f9a0f17439d2eb9131bdb4da, type: 2}
+  - {fileID: 11400000, guid: 7a5d5a6f53ea4b943bdd1324fdeb128e, type: 2}
   gestureCDF:
-    priority: 01000000
+    priority: 010000000a000000

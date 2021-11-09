@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\u5433\u8331\u8438"
   description: 
-  sprite: {fileID: 21300000, guid: 8a70a8135c25c3a419264b1c51d090c1, type: 3}
+  sprite: {fileID: 21300000, guid: 28d442ce20b518b43894fe58e8b72a4e, type: 3}
   animator: {fileID: 0}

@@ -9,12 +9,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] List<CanvasGroupFader> faders;
     [SerializeField] Gesture.GestureManager gestureManager;
+    [SerializeField] GameObject vCam;
     private AsyncOperation async = null;
     private string additiveScene;
 
-    public void SetCameraPos(float xPos) {
+    public void SetCameraPos(float yPos) {
         Vector3 newPos = mainCamera.transform.position;
-        newPos.x = xPos;
+        newPos.x = yPos;
         mainCamera.transform.position = newPos;
     }
 
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void UnloadScene() {
-        SetCameraPos(80.0f);
+        //SetCameraPos(80.0f);
         FadeInUI();
         UserStateManager.Instance.SaveState();
         UserStateManager.Instance.LogState();
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
         gestureManager.ToggleIndicator(false);
         gestureManager.ClearQueue();
         Time.timeScale = 1.0f;
+        vCam.SetActive(true);
     }
 
     private IEnumerator LoadGameScene(string sceneName) {
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
         FadeOutUI();
         SetCameraPos(0);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(additiveScene));
+        vCam.SetActive(false);
         Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
     }
 
