@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "\u5927\u82B1\u66FC\u9640\u7F85"
   m_EditorClassIdentifier: 
   itemName: "\u5927\u82B1\u66FC\u9640\u7F85"
-  description: Grass
+  description: "\u82B1\u5165\u9152\uFF0C\u5F15\u4EBA\u7B11\u3001\u4EE4\u4EBA\u821E\r\n\u4F3C\u4E4E\u53EF\u4EE5\u5F15\u767C\u5E7B\u89BA\r\n\u5168\u682A\u6709\u6BD2\r"
   sprite: {fileID: 21300000, guid: 59ff5566c9a113b458ef95ec210c7b0d, type: 3}
   animator: {fileID: 0}
