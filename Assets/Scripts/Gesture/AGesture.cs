@@ -17,6 +17,7 @@ public abstract class AGesture {
     protected string name;
     protected int targetCount, remainCount;
     protected Indicator indicator;
+    protected float singleDuration;
 
     public Indicator Indicator {
         get => indicator;
@@ -31,6 +32,7 @@ public abstract class AGesture {
         set {
             gestureData = value;
             TargetCount = UnityEngine.Random.Range(gestureData.minCount, gestureData.maxCount+1);
+            singleDuration = gestureData.singleDuration;
         }
     }
 
@@ -44,6 +46,11 @@ public abstract class AGesture {
 
     public int RemainCount {
         get => remainCount;
+    }
+
+    public float SingleDuration {
+        get => singleDuration;
+        set => singleDuration = value;
     }
 
     public AGesture() {

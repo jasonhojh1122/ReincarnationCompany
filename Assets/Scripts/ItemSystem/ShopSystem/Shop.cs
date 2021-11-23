@@ -34,6 +34,7 @@ public class Shop : MonoBehaviour {
     public void SetActiveItem(ShopItemData sid) {
         this.sid = sid;
         amount = 1;
+        UpdateText();
     }
 
 }

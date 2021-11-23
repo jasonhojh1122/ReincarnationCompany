@@ -9,14 +9,12 @@ public class Sign : MonoBehaviour {
         popup.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Player")
-            popup.SetActive(true);
+    public void Popup() {
+        popup.SetActive(true);
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
-        if (other.gameObject.tag == "Player")
-            popup.SetActive(false);
+    public void UnPopup() {
+        popup.SetActive(false);
     }
 
 }

@@ -19,21 +19,21 @@ public class DriftingItemGenerator : MonoBehaviour {
     [SerializeField] List<Generator> generators;
     [SerializeField] CDF generatorCDF;
 
+    GestureManager gestureManager;
     DriftingPatternPool driftingPatternTypePool;
-    GesturePool gesturePool;
     bool toGenerate;
 
-    private void OnEnable() {
+    private void Awake() {
+        gestureManager = FindObjectOfType<GestureManager>();
         generatorCDF.CalculateCDF();
     }
 
     void Start() {
         driftingPatternTypePool = new DriftingPatternPool();
-        gesturePool = new GesturePool();
         toGenerate = true;
         foreach (Generator g in generators) {
             g.SetDriftingPatternPool(driftingPatternTypePool);
-            g.SetGesturePool(gesturePool);
+            g.gestureManager = gestureManager;
         }
         StartCoroutine(KeepGenerate());
     }

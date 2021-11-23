@@ -4,8 +4,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MovingTarget : MonoBehaviour {
 
+    enum Facing {
+        TOP,
+        BOT,
+        LEFT,
+        RIGHT
+    }
+
     [SerializeField] float speed;
-    [SerializeField] bool twoSided = true;
+    [SerializeField] bool hasFacing = true;
     [SerializeField] int obstacleLayer = 8;
 
     Animator animator;
@@ -47,9 +54,7 @@ public class MovingTarget : MonoBehaviour {
         Vector2 newPos = rb.position + vel * Time.deltaTime;
         if (!IsBlocked(newPos)) {
             rb.MovePosition(newPos);
-            if (twoSided) {
 
-            }
         }
 
     }

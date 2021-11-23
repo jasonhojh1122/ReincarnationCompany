@@ -36,7 +36,7 @@ public class Tap : AGesture {
     }
 
     public override bool IsFailed() {
-        return (Time.time - gestureStartTime > gestureData.singleDuration * targetCount);
+        return (Time.time - gestureStartTime > singleDuration * targetCount);
     }
 
 

@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: e6d44b3c81eedfe4aa6faf9563685047, type: 2}
   rules: []
+  NPCs:
+  - baseData: {fileID: 11400000, guid: d44beb8cca979b94db3fe1b7f9bee756, type: 2}
+    position: {x: -7, y: 188, z: 0}
+  - baseData: {fileID: 11400000, guid: bd9d155add343834c84e1b35e3c4d9d3, type: 2}
+    position: {x: 22, y: 170, z: 0}

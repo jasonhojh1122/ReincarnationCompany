@@ -11,6 +11,7 @@ public class ActivateZone : MonoBehaviour {
     public UnityEvent onExit;
 
     private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log(other.gameObject.name + " " + other.gameObject.tag);
         if ( MatchTarget(other.gameObject) ) {
             onEnter.Invoke();
         }
@@ -23,8 +24,8 @@ public class ActivateZone : MonoBehaviour {
     }
 
     bool MatchTarget(GameObject go) {
-        if ( (targetName != null && go.gameObject.name != targetName) ||
-             (targetTag != null && go.gameObject.tag != targetTag) ) {
+        if ( (targetName != null && targetName != "" && go.gameObject.name != targetName) ||
+             (targetTag != null && targetTag != "" && go.gameObject.tag != targetTag) ) {
             return false;
         }
         else {
