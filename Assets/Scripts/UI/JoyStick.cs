@@ -2,14 +2,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class JoyStick : MonoBehaviour, ITouchable {
-    [SerializeField] RectTransform head;
     [SerializeField] float maxOffset;
-    [SerializeField] float horSpeed, verSpeed;
+    [SerializeField] RectTransform head;
+    [SerializeField] MovingTarget target;
     RectTransform mount;
     Vector2 beginPos;
     int fingerID;
-    [SerializeField] Rigidbody2D target;
-    // [SerializeField] Transform target;
 
     void Start() {
         mount = GetComponent<RectTransform>();
@@ -29,10 +27,7 @@ public class JoyStick : MonoBehaviour, ITouchable {
 
     protected void UpdatePos() {
         Vector2 offset = GetOffset();
-        Vector2 vel = new Vector2();
-        vel.x += horSpeed * offset.x;
-        vel.y += verSpeed * offset.y;
-        target.MovePosition(target.position + vel * Time.deltaTime);
+        target.Move(GetOffset());
     }
 
     public void Touched(Touch touch) {

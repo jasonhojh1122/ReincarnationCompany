@@ -25,6 +25,8 @@ public class CharacterData : ScriptableObject {
 
     public List<Rule> rules;
 
+    public List<string> NPCs;
+
 }
 
 }

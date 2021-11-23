@@ -24,18 +24,24 @@ public class Generator : MonoBehaviour {
 
     public DriftingItem Generate() {
 
-        DriftingItem go = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        DriftingItem di = Instantiate(prefab, Vector3.zero, Quaternion.identity);
 
         int itemID = cdf.GetRandomID();
-        go.SetData(itemPool[itemID]);
+        di.DriftingItemData = itemPool[itemID];
 
         DriftingPatternData patternData = itemPool[itemID].GetRandomDriftingPattern();
-        go.SetDriftingPattern(driftingPatternPool.InstantiateDriftingPattern(patternData));
+        di.DriftingPattern = driftingPatternPool.InstantiateDriftingPattern(patternData);
 
         Gesture.GestureData gestureData = itemPool[itemID].GetRandomGesture();
-        go.SetGesture(gesturePool.InstantiateGesture(gestureData));
+        Debug.Log(gestureData.gestureName);
+        var aaa = gesturePool.InstantiateGesture(gestureData);
+        if (aaa ==null) {
+            Debug.Log("AGesture is null");
+        }
+        di.Gesture = aaa;
+        //di.Gesture = gesturePool.InstantiateGesture(gestureData);
 
-        return go;
+        return di;
     }
 
 }

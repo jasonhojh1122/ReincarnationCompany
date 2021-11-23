@@ -36,11 +36,11 @@ namespace Gesture
                         direction.magnitude < movedOffset)
                     {
                         remainCount = targetCount;
-                        indicator.UpdateCount(remainCount);
+                        OnReset.Invoke();
                         break;
                     }
                     remainCount--;
-                    indicator.UpdateCount(remainCount);
+                    OnSingleSatisfied.Invoke();
                     break;
             }
         }

@@ -26,7 +26,7 @@ public class Tap : AGesture {
                     break;
                 }
                 remainCount--;
-                indicator.UpdateCount(remainCount);
+                OnSingleSatisfied.Invoke();
                 break;
         }
     }

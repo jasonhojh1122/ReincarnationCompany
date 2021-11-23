@@ -24,7 +24,6 @@ public class DriftingItemGenerator : MonoBehaviour {
     bool toGenerate;
 
     private void OnEnable() {
-        Debug.Log("AAAAAAA");
         generatorCDF.CalculateCDF();
     }
 
@@ -57,7 +56,7 @@ public class DriftingItemGenerator : MonoBehaviour {
         Vector3 pos = new Vector3(transform.position.x, UnityEngine.Random.Range(minY, maxY), 0);
         di.transform.position = pos;
         di.transform.rotation = Quaternion.identity;
-        di.SetBoat(boat);
+        di.Boat = boat;
         return di;
     }
 

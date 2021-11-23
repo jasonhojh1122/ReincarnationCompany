@@ -24,7 +24,7 @@ public class GesturePool {
     public AGesture InstantiateGesture(GestureData data) {
         System.Type gestureType = GetType(data);
         AGesture gesture = (AGesture)System.Activator.CreateInstance(gestureType);
-        gesture.SetData(data);
+        gesture.GestureData = data;
         return gesture;
     }
 }

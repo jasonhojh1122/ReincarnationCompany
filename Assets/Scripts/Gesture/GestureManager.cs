@@ -7,12 +7,10 @@ namespace Gesture {
 
 public class GestureManager : MonoBehaviour {
 
-    [SerializeField] Indicator indicator;
     Queue<AGesture> queue;
     bool monitoring;
 
     private void Start() {
-        ToggleIndicator(false);
         monitoring = false;
         queue = new Queue<AGesture>();
     }
@@ -32,29 +30,23 @@ public class GestureManager : MonoBehaviour {
 
     IEnumerator MonitorGesture() {
         AGesture gesture = queue.Peek();
-        ToggleIndicator(true);
-        gesture.StartGesture(indicator);
+        gesture.StartGesture();
 
         while (!gesture.IsFailed() && !gesture.IsSatisfied() ) {
             yield return null;
         }
         if (gesture.IsFailed()) {
-            gesture.OnFailed();
+            gesture.OnFailed.Invoke();
         }
         else if (gesture.IsSatisfied()) {
-            gesture.OnSatisfied();
+            gesture.OnSatisfied.Invoke();
         }
         queue.Dequeue();
-        ToggleIndicator(false);
         monitoring = false;
     }
 
     public void Enqueue(AGesture gesture) {
         queue.Enqueue(gesture);
-    }
-
-    public void ToggleIndicator(bool state) {
-        indicator.gameObject.SetActive(state);
     }
 
     public void ClearQueue() {

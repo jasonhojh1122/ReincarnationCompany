@@ -9,7 +9,7 @@ public class Brewer : MonoBehaviour {
     [SerializeField] List<Character.CharacterData> characterData;
     [SerializeField] Brew.BrewViewer brewViewer;
     [SerializeField] CanvasGroupFader uiFader;
-    [SerializeField] Player player;
+    [SerializeField] Character.Player player;
     [SerializeField] TextMeshPro title;
 
     GameManager gameManager;
@@ -90,7 +90,7 @@ public class Brewer : MonoBehaviour {
         title.text = "你已經成功投胎為 " + newCharacter;
         UserStateManager.Instance.UsedCharacter.Add(UserStateManager.Instance.CurCharacter);
         UserStateManager.Instance.CurCharacter = newCharacter;
-        player.UpdateSprite();
+        player.UpdateCharacter(UserStateManager.Instance.CurCharacter);
         Debug.Log(newCharacter);
         yield return null;
     }

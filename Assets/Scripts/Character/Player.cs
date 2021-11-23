@@ -1,19 +1,16 @@
 
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+namespace Character {
 
-    public ItemPool itemPool;
+    public class Player : Character {
 
-    SpriteRenderer _renderer;
+        protected override void Awake() {
+            _renderer = GetComponent<SpriteRenderer>();
+            col = GetComponent<BoxCollider2D>();
+            UpdateCharacter(UserStateManager.Instance.CurCharacter);
+        }
 
-    private void Awake() {
-        _renderer = GetComponent<SpriteRenderer>();
-        UpdateSprite();
-    }
-
-    public void UpdateSprite() {
-        _renderer.sprite = itemPool.characterPool[UserStateManager.Instance.CurCharacter].sprite;
     }
 
 }
