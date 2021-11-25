@@ -13,11 +13,11 @@ public class TouchManager : MonoBehaviour {
                 continue;
             }
             else if (ProcessTouchOnGameObject(touch)) {
-                // Debug.Log("GameObject");
+                Debug.Log("GameObject");
                 continue;
             }
             else {
-                // Debug.Log("Gesture");
+                Debug.Log("Gesture" + Gesture.GestureManager.Instance.queue.Count);
                 Gesture.GestureManager.Instance.UpdateTouch(touch);
             }
         }

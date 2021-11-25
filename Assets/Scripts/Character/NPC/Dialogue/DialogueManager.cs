@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 using Ink.Runtime;
 
@@ -39,6 +40,12 @@ namespace Character.NPC.Dialogue {
         }
     }
 
+    [System.Serializable]
+    public struct DialogueEvent {
+        public string Tag;
+        public UnityEvent OnChoice;
+    }
+
     public class DialogueManager : MonoBehaviour
     {
         private static DialogueManager _instance;
@@ -51,10 +58,16 @@ namespace Character.NPC.Dialogue {
         [SerializeField] TextMeshProUGUI dialogueText;
         [SerializeField] List<ChoiceWrapper> choices;
         [SerializeField] float gapTimeBetweenWord;
+        [SerializeField] public UnityEvent OnChoiceAppear;
 
+        public List<ChoiceWrapper> Choices {
+            get => choices;
+        }
+
+        NPC curNPC;
         Story curStory;
         string curLine;
-        bool isShowingChoices;
+        List<string> eventTags;
         bool isShowingWords;
 
         private void Awake() {
@@ -66,58 +79,87 @@ namespace Character.NPC.Dialogue {
             ExitDialogue();
         }
 
-        public void EnterDialogue(TextAsset inkJSON, Sprite sprite) {
-            curStory = new Story(inkJSON.text);
+        public Story EnterDialogue(NPC npc) {
+            ExitDialogue();
+            curNPC = npc;
+            curStory = new Story(npc.DialogueJSON.text);
             dialoguePanel.SetActive(true);
-            profile.Sprite = sprite;
-            AdvanceLine();
+            if (npc.CharacterData != null)
+                profile.Sprite = npc.CharacterData.baseData.sprite;
+            UpdateDialogue();
+            return curStory;
         }
 
         public void ExitDialogue() {
-            isShowingChoices = false;
             dialoguePanel.SetActive(false);
             dialogueText.text = "";
             Gesture.GestureManager.Instance.ClearQueue();
             HideChoices();
         }
 
-        public void AdvanceLine() {
-            bool ended = true;
+        public void UpdateDialogue() {
+            if (eventTags != null)
+                CheckEvent();
+
             if (isShowingWords) {
                 StopAllCoroutines();
-                isShowingWords = false;
                 dialogueText.text = curLine;
-                ended = false;
+                OnWordsEnd();
             }
             else if (curStory.canContinue) {
-                curLine = curStory.Continue();
-                StartCoroutine(ShowWords());
-                ended = false;
+                ContinueDialogue();
             }
-            else if (isShowingChoices || ShowChoices()) {
-                ended = false;
-            }
-
-            if (ended) {
+            else if (!curStory.canContinue) {
                 ExitDialogue();
             }
-            else {
-                Gesture.GestureManager.Instance.Enqueue(NewTap());
+        }
+
+        void ContinueDialogue() {
+            curLine = curStory.Continue();
+            StartCoroutine(ShowWords());
+            Gesture.GestureManager.Instance.Enqueue(NewTap());
+        }
+
+        void OnWordsEnd() {
+            eventTags = curStory.currentTags;
+            Gesture.GestureManager.Instance.ClearQueue();
+            isShowingWords = false;
+            if (!curStory.canContinue && ShowChoices()) {
+                return;
             }
+            Gesture.GestureManager.Instance.Enqueue(NewTap());
+        }
+
+        System.Collections.IEnumerator ShowWords() {
+            isShowingWords = true;
+            dialogueText.text = "";
+            foreach (char c in curLine) {
+                dialogueText.text += c;
+                yield return new WaitForSeconds(gapTimeBetweenWord);
+            }
+            OnWordsEnd();
         }
 
         bool ShowChoices() {
             if (curStory.currentChoices.Count == 0)
                 return false;
-            isShowingChoices = true;
             for (int i = 0; i < curStory.currentChoices.Count; i++) {
                 int j = i;
                 Choice choice = curStory.currentChoices[i];
                 choices[i].GameObject.SetActive(true);
-                choices[i].Button.onClick.AddListener(delegate{ChooseChocie(j);});
+                choices[i].Button.onClick.AddListener(delegate{ChooseChoice(j);});
                 choices[i].Text.text = choice.text;
             }
+            OnChoiceAppear.Invoke();
             return true;
+        }
+
+        public void ChooseChoice(int i) {
+            curStory.ChooseChoiceIndex(i);
+            HideChoices();
+            if (curStory.canContinue) {
+                ContinueDialogue();
+            }
         }
 
         void HideChoices() {
@@ -128,30 +170,21 @@ namespace Character.NPC.Dialogue {
             }
         }
 
-        public void ChooseChocie(int i) {
-            curStory.ChooseChoiceIndex(i);
-            isShowingChoices = false;
-            HideChoices();
-            Gesture.GestureManager.Instance.Enqueue(NewTap());
-        }
-
-        System.Collections.IEnumerator ShowWords() {
-            isShowingWords = true;
-            string partial = "";
-            foreach (char c in curLine) {
-                partial += c;
-                dialogueText.text = partial;
-                yield return new WaitForSeconds(gapTimeBetweenWord);
-            }
-            isShowingWords = false;
-        }
-
         Gesture.Tap NewTap() {
             Gesture.Tap tap = new Gesture.Tap();
             tap.TargetCount = 1;
             tap.SingleDuration = float.MaxValue;
-            tap.OnSatisfied.AddListener(AdvanceLine);
+            tap.OnSingleSatisfied.AddListener(UpdateDialogue);
             return tap;
+        }
+
+        void CheckEvent() {
+            foreach (string tag in eventTags) {
+                if (curNPC.EventMap.ContainsKey(tag)) {
+                    curNPC.EventMap[tag].Invoke();
+                }
+            }
+            eventTags = null;
         }
     }
 

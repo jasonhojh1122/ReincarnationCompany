@@ -1,11 +1,21 @@
 using UnityEngine;
-using TMPro;
-using System.Collections;
+using UnityEngine.Events;
+using System.Collections.Generic;
+using Ink.Runtime;
 
 namespace Character.NPC {
+
     public class NPC : Character
     {
         [SerializeField] TextAsset dialogueJSON;
+        [SerializeField] List<Dialogue.DialogueEvent> dialogueEvents;
+
+        protected Story curStory;
+        protected Dictionary<string, UnityEvent> eventMap;
+
+        public Dictionary<string, UnityEvent> EventMap {
+            get => eventMap;
+        }
 
         public TextAsset DialogueJSON {
             get => dialogueJSON;
@@ -17,6 +27,10 @@ namespace Character.NPC {
         private void Start() {
             if (dialogueManager == null)
                 dialogueManager = Dialogue.DialogueManager.Instance;
+            eventMap = new Dictionary<string, UnityEvent>();
+            foreach (Dialogue.DialogueEvent e in dialogueEvents) {
+                eventMap.Add(e.Tag, e.OnChoice);
+            }
         }
 
         public void Init(string characterName) {
@@ -25,8 +39,7 @@ namespace Character.NPC {
         }
 
         public virtual void Talk() {
-            Debug.Log("talk");
-            dialogueManager.EnterDialogue(dialogueJSON, characterData.baseData.sprite);
+            curStory = dialogueManager.EnterDialogue(this);
         }
 
     }

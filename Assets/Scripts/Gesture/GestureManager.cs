@@ -13,7 +13,7 @@ public class GestureManager : MonoBehaviour {
     }
 
     GesturePool gesturePool;
-    Queue<AGesture> queue;
+    public Queue<AGesture> queue;
     bool monitoring;
 
     public GesturePool GesturePool {
@@ -53,7 +53,8 @@ public class GestureManager : MonoBehaviour {
         else if (gesture.IsSatisfied()) {
             gesture.OnSatisfied.Invoke();
         }
-        queue.Dequeue();
+        if (queue.Count > 0)
+            queue.Dequeue();
         monitoring = false;
     }
 
@@ -63,7 +64,8 @@ public class GestureManager : MonoBehaviour {
 
     public void ClearQueue() {
         StopAllCoroutines();
-        queue.Clear();
+        if (queue.Count > 0)
+            queue.Clear();
         monitoring = false;
     }
 
