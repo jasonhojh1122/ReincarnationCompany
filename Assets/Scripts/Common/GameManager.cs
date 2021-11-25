@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager _instance;
+    public static GameManager Instance {
+        get => _instance;
+    }
+
     [SerializeField] private Camera mainCamera;
     [SerializeField] Canvas canvas;
     [SerializeField] List<CanvasGroupFader> faders;
-    [SerializeField] Gesture.GestureManager gestureManager;
     [SerializeField] GameObject vCam;
     [SerializeField] Character.Player player;
     private AsyncOperation async = null;
@@ -16,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     public Character.Player Player {
         get => player;
+    }
+
+    private void Awake() {
+        _instance = this;
     }
 
     public void SetCameraPos(float yPos) {
@@ -34,7 +42,7 @@ public class GameManager : MonoBehaviour
         UserStateManager.Instance.LogState();
         SceneManager.UnloadSceneAsync(additiveScene);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("_Main"));
-        gestureManager.ClearQueue();
+        Gesture.GestureManager.Instance.ClearQueue();
         Time.timeScale = 1.0f;
         vCam.SetActive(true);
     }

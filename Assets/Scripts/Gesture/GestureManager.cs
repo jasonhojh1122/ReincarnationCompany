@@ -7,6 +7,11 @@ namespace Gesture {
 
 public class GestureManager : MonoBehaviour {
 
+    private static GestureManager _instance;
+    public static GestureManager Instance {
+        get => _instance;
+    }
+
     GesturePool gesturePool;
     Queue<AGesture> queue;
     bool monitoring;
@@ -16,10 +21,8 @@ public class GestureManager : MonoBehaviour {
     }
 
     private void Awake() {
+        _instance = this;
         gesturePool = new GesturePool();
-    }
-
-    private void Start() {
         monitoring = false;
         queue = new Queue<AGesture>();
     }

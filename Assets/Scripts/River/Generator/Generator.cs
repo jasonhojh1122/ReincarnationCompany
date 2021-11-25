@@ -7,7 +7,6 @@ public class Generator : MonoBehaviour {
     [SerializeField] protected DriftingItem prefab;
     [SerializeField] protected List<DriftingItemData> itemPool;
     [SerializeField] CDF cdf;
-    public Gesture.GestureManager gestureManager;
     protected DriftingPatternPool driftingPatternPool;
 
     private void Awake() {
@@ -30,12 +29,7 @@ public class Generator : MonoBehaviour {
 
         Gesture.GestureData gestureData = itemPool[itemID].GetRandomGesture();
         Debug.Log(gestureData.gestureName);
-        var aaa = gestureManager.GesturePool.InstantiateGesture(gestureData);
-        if (aaa ==null) {
-            Debug.Log("AGesture is null");
-        }
-        di.Gesture = aaa;
-        //di.Gesture = gesturePool.InstantiateGesture(gestureData);
+        di.Gesture = Gesture.GestureManager.Instance.GesturePool.InstantiateGesture(gestureData);
 
         return di;
     }

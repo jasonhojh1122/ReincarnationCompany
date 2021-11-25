@@ -5,13 +5,10 @@ namespace River {
     public class GrabPosition : MonoBehaviour {
 
         [SerializeField] Boat boat;
-        static Gesture.GestureManager gestureManager;
         Collider2D col;
         River.DriftingItem driftingItem;
 
         private void Awake() {
-            if (gestureManager == null)
-                gestureManager = FindObjectOfType<Gesture.GestureManager>();
             col = GetComponent<Collider2D>();
         }
 
@@ -35,7 +32,7 @@ namespace River {
             gesture.OnStart.AddListener(delegate{boat.ShowIndicator(gesture);});
             gesture.OnReset.AddListener(boat.Indicator.Reset);
 
-            gestureManager.Enqueue(gesture);
+            Gesture.GestureManager.Instance.Enqueue(gesture);
 
             col.enabled = false;
         }

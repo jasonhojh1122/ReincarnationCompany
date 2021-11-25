@@ -4,14 +4,12 @@ using System.Collections.Generic;
 
 public class TouchManager : MonoBehaviour {
 
-    [SerializeField] private Gesture.GestureManager gestureManager;
-
     private void Update() {
 
         for (int i = 0; i < Input.touchCount; i++) {
             Touch touch = Input.GetTouch(i);
             if (ProcessTouchOnUI(touch)) {
-                // Debug.Log("UI");
+                Debug.Log("UI");
                 continue;
             }
             else if (ProcessTouchOnGameObject(touch)) {
@@ -20,7 +18,7 @@ public class TouchManager : MonoBehaviour {
             }
             else {
                 // Debug.Log("Gesture");
-                gestureManager.UpdateTouch(touch);
+                Gesture.GestureManager.Instance.UpdateTouch(touch);
             }
         }
     }
@@ -35,8 +33,11 @@ public class TouchManager : MonoBehaviour {
             ITouchable touchable = hits[0].gameObject.GetComponent<ITouchable>();
             if (touchable != null) {
                 touchable.Touched(touch);
+                return true;
             }
-            return true;
+            else {
+                return false;
+            }
         }
         else {
             return false;

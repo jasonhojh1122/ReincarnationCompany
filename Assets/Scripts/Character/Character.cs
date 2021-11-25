@@ -27,13 +27,12 @@ namespace Character {
 
         protected static CharacterData LoadData(string characterName) {
             return Utils.Loader.Load<CharacterData>("CharacterData/" + characterName);
-            // return Utils.Loader.Load<CharacterData>("CharacterData/" + UserStateManager.Instance.CurCharacter);
         }
 
         protected void ResizeCollider() {
             col.offset = Vector2.zero;
-            col.size = new Vector2(_renderer.sprite.bounds.size.x / transform.lossyScale.x,
-                _renderer.sprite.bounds.size.y / transform.lossyScale.y);
+            col.size = new Vector2(_renderer.sprite.bounds.extents.x * transform.lossyScale.x,
+                _renderer.sprite.bounds.extents.y * transform.lossyScale.y);
         }
     }
 }

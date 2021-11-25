@@ -2,67 +2,32 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-namespace Character {
+namespace Character.NPC {
     public class NPC : Character
     {
-        [SerializeField] Transform textBlock;
-        [SerializeField] TextMeshPro lineText;
-        DialogueData dialogueData;
+        [SerializeField] TextAsset dialogueJSON;
 
-        bool finishedTalking;
-        int curLine;
+        public TextAsset DialogueJSON {
+            get => dialogueJSON;
+            set => dialogueJSON = value;
+        }
 
-        static Gesture.GestureManager gestureManager;
+        static Dialogue.DialogueManager dialogueManager;
 
         private void Start() {
-            finishedTalking = false;
-            textBlock.gameObject.SetActive(false);
-            if (gestureManager == null)
-                gestureManager = FindObjectOfType<Gesture.GestureManager>();
+            if (dialogueManager == null)
+                dialogueManager = Dialogue.DialogueManager.Instance;
         }
 
         public void Init(string characterName) {
             UpdateCharacter(characterName);
-            dialogueData = Utils.Loader.Load<DialogueData>("DialogueData/" + characterName);
+            DialogueJSON = Utils.Loader.Load<TextAsset>("DialogueData/" + characterName);
         }
 
-
-        // on player enter activate zone
-        public void StartDialogue() {
-            if (finishedTalking) return;
-            textBlock.gameObject.SetActive(true);
-            curLine = -1;
-            finishedTalking = false;
-            gestureManager.Enqueue(NewTap());
-            AdvanceLine();
+        public virtual void Talk() {
+            Debug.Log("talk");
+            dialogueManager.EnterDialogue(dialogueJSON, characterData.baseData.sprite);
         }
-
-        public void AdvanceLine() {
-            curLine += 1;
-            if (curLine >= dialogueData.lines.Count) {
-                finishedTalking = true;
-                textBlock.gameObject.SetActive(false);
-                return;
-            }
-            else {
-                lineText.text = dialogueData.lines[curLine];
-                gestureManager.Enqueue(NewTap());
-            }
-        }
-
-        // on player exit activate zone
-        public void EndDialogue() {
-            finishedTalking = false;
-        }
-
-        Gesture.Tap NewTap() {
-            Gesture.Tap tap = new Gesture.Tap();
-            tap.TargetCount = 1;
-            tap.SingleDuration = float.MaxValue;
-            tap.OnSatisfied.AddListener(AdvanceLine);
-            return tap;
-        }
-
 
     }
 

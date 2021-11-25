@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Character {
+namespace Character.NPC {
     public class NPCLoader : MonoBehaviour {
 
         [SerializeField] GameManager gameManager;
