@@ -18,3 +18,7 @@ MonoBehaviour:
     itemData: {fileID: 0}
     minAmount: 1
     maxAmount: 2
+  NPCs: []
+  life: 4
+  speed: 8
+  defaultMoney: 300

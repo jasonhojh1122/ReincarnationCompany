@@ -3,7 +3,6 @@ using UnityEngine;
 namespace Character.NPC {
     public class NPCLoader : MonoBehaviour {
 
-        [SerializeField] GameManager gameManager;
         [SerializeField] NPC prefab;
 
         private void Start() {
@@ -11,7 +10,7 @@ namespace Character.NPC {
         }
 
         void LoadNPCs() {
-            foreach (NPCSetting setting in gameManager.Player.CharacterData.NPCs) {
+            foreach (NPCSetting setting in GameManager.Instance.Player.CharacterData.NPCs) {
                 var npc = GameObject.Instantiate<NPC>(prefab);
                 npc.transform.position = setting.position;
                 npc.Init(setting.baseData.itemName);

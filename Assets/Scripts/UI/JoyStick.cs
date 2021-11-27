@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class JoyStick : MonoBehaviour, ITouchable {
     [SerializeField] float maxOffset;
     [SerializeField] RectTransform head;
-    [SerializeField] MovingTarget target;
+    [SerializeField] Character.MovingTarget target;
     RectTransform mount;
     Vector2 beginPos;
     int fingerID;

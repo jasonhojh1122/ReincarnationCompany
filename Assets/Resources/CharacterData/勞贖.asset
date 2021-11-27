@@ -46,3 +46,7 @@ MonoBehaviour:
     itemData: {fileID: 11400000, guid: fc2aba3db2529b943a9b95cc5491e1f4, type: 2}
     minAmount: 1
     maxAmount: 1
+  NPCs: []
+  life: 3
+  speed: 16
+  defaultMoney: 200

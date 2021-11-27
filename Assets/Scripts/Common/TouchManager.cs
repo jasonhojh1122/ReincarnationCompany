@@ -9,15 +9,15 @@ public class TouchManager : MonoBehaviour {
         for (int i = 0; i < Input.touchCount; i++) {
             Touch touch = Input.GetTouch(i);
             if (ProcessTouchOnUI(touch)) {
-                Debug.Log("UI");
+                // Debug.Log("UI");
                 continue;
             }
             else if (ProcessTouchOnGameObject(touch)) {
-                Debug.Log("GameObject");
+                // Debug.Log("GameObject");
                 continue;
             }
             else {
-                Debug.Log("Gesture" + Gesture.GestureManager.Instance.queue.Count);
+                // Debug.Log("Gesture" + Gesture.GestureManager.Instance.queue.Count);
                 Gesture.GestureManager.Instance.UpdateTouch(touch);
             }
         }

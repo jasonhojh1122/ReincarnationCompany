@@ -28,10 +28,11 @@ namespace Character {
     public class CharacterData : ScriptableObject {
 
         public BaseItemData baseData;
-
         public List<Rule> rules;
-
         public List<NPCSetting> NPCs;
+        public int life = 3;
+        public float speed = 12;
+        public int defaultMoney = 500;
 
     }
 

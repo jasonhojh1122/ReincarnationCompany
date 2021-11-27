@@ -1747,7 +1747,7 @@ PrefabInstance:
     - target: {fileID: 288817197402833291, guid: ad038e4fa2085984db9da8e89897d00a, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 2011578788}
+      objectReference: {fileID: 2011578790}
     - target: {fileID: 288817197402833291, guid: ad038e4fa2085984db9da8e89897d00a, type: 3}
       propertyPath: horSpeed
       value: 10
@@ -6744,7 +6744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5998b66b9d049d44a8abd6c116ab362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1929867395}
   prefab: {fileID: 4283452232210346503, guid: a78752e2793a14a4f8da715db65d3dc6, type: 3}
 --- !u!114 &1929867400
 MonoBehaviour:
@@ -6907,8 +6906,9 @@ GameObject:
   - component: {fileID: 2011578783}
   - component: {fileID: 2011578786}
   - component: {fileID: 2011578785}
+  - component: {fileID: 2011578789}
   - component: {fileID: 2011578787}
-  - component: {fileID: 2011578788}
+  - component: {fileID: 2011578790}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7040,7 +7040,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7c8e8d88116bc46b3ece1538438577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2011578788
+--- !u!95 &2011578789
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011578782}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2011578790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7049,10 +7068,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2011578782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc6a16cfdd7ab8b479738397edbd8057, type: 3}
+  m_Script: {fileID: 11500000, guid: ec2975475cd1a954ca3cea8adf5d23ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 0
   hasFacing: 1
   obstacleLayer: 8
 --- !u!114 &2029497159 stripped
@@ -7660,7 +7679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4283452232041083309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.11, y: 191.73, z: 0}
+  m_LocalPosition: {x: 25.47, y: 197.7, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4283452232371554526}

@@ -9,5 +9,10 @@ namespace Utils {
         {
             return Mathf.Abs(a-b) <= gap;
         }
+
+        public static bool CloseVector2(Vector2 a, Vector2 b)
+        {
+            return (a-b).magnitude < gap;
+        }
     }
 }

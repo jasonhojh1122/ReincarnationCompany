@@ -1,9 +1,8 @@
 
 using UnityEngine;
 
-
-
 namespace Character {
+
     public class Character : MonoBehaviour {
 
         protected CharacterData characterData;

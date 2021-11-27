@@ -19,3 +19,6 @@ MonoBehaviour:
     position: {x: -7, y: 188, z: 0}
   - baseData: {fileID: 11400000, guid: bd9d155add343834c84e1b35e3c4d9d3, type: 2}
     position: {x: 22, y: 170, z: 0}
+  life: 3
+  speed: 12
+  defaultMoney: 300
