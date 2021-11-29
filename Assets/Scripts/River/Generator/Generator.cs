@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace River {
 public class Generator : MonoBehaviour {
-
     [SerializeField] protected DriftingItem prefab;
     [SerializeField] protected List<DriftingItemData> itemPool;
     [SerializeField] CDF cdf;
@@ -25,11 +24,17 @@ public class Generator : MonoBehaviour {
         di.DriftingItemData = itemPool[itemID];
 
         DriftingPatternData patternData = itemPool[itemID].GetRandomDriftingPattern();
-        di.DriftingPattern = driftingPatternPool.InstantiateDriftingPattern(patternData);
+        if (patternData != null) {
+            di.DriftingPattern = driftingPatternPool.InstantiateDriftingPattern(patternData);
+            di.DriftingPattern.Init(patternData, di.DriftingItemData);
+        }
+
 
         Gesture.GestureData gestureData = itemPool[itemID].GetRandomGesture();
-        Debug.Log(gestureData.gestureName);
-        di.Gesture = Gesture.GestureManager.Instance.GesturePool.InstantiateGesture(gestureData);
+        if (gestureData != null)
+            di.Gesture = Gesture.GestureManager.Instance.GesturePool.InstantiateGesture(gestureData);
+
+        di.UpdateSprite();
 
         return di;
     }

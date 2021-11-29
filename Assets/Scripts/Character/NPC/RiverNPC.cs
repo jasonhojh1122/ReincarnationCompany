@@ -14,7 +14,8 @@ namespace Character.NPC {
         }
 
         public void Enter() {
-            GameManager.Instance.LoadScene("01-River");
+            UserStateManager.Instance.Money -= price;
+            GameManager.Instance.LoadSceneAndClose("01-River");
         }
 
 

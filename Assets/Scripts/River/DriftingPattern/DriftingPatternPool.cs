@@ -24,7 +24,6 @@ public class DriftingPatternPool {
     public ADriftingPattern InstantiateDriftingPattern(DriftingPatternData data) {
         System.Type patternType = GetType(data);
         ADriftingPattern pattern = (ADriftingPattern)System.Activator.CreateInstance(patternType);
-        pattern.Init(data);
         return pattern;
     }
 

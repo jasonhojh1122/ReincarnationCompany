@@ -8,12 +8,13 @@ namespace River {
 public class DriftingItem : MonoBehaviour {
 
     protected SpriteRenderer spriteRenderer;
-    protected Collider2D col;
-    protected DriftingItemData data;
+    protected BoxCollider2D col;
+    [SerializeField] protected DriftingItemData data;
+    [SerializeField] protected Boat boat;
+    [SerializeField] protected bool grabbed;
     protected ADriftingPattern driftingPattern;
     protected AGesture gesture;
-    protected Boat boat;
-    protected bool grabbed;
+    protected bool paused;
 
     public AGesture Gesture {
         get => gesture;
@@ -41,12 +42,13 @@ public class DriftingItem : MonoBehaviour {
 
     void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        col = GetComponent<Collider2D>();
+        col = GetComponent<BoxCollider2D>();
         grabbed = false;
+        paused = false;
     }
 
     void Update() {
-        if (driftingPattern != null && !grabbed) {
+        if (driftingPattern != null && !paused) {
             driftingPattern.UpdatePosition(transform);
         }
     }
@@ -54,6 +56,7 @@ public class DriftingItem : MonoBehaviour {
     public void Grab(Transform grabPos) {
         col.enabled = false;
         grabbed = true;
+        paused = true;
         transform.SetParent(grabPos);
         transform.localPosition = Vector3.zero;
     }
@@ -70,6 +73,12 @@ public class DriftingItem : MonoBehaviour {
 
     public bool IsGrabbed() {
         return grabbed;
+    }
+
+    public void UpdateSprite() {
+        SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = data.baseData.sprite;
+        Utils.Fuzzy.MatchBoxColliderToSprite(col, _renderer.sprite);
     }
 
 }

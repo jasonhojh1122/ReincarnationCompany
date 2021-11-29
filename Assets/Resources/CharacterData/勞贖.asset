@@ -48,5 +48,5 @@ MonoBehaviour:
     maxAmount: 1
   NPCs: []
   life: 3
-  speed: 16
+  speed: 8
   defaultMoney: 200

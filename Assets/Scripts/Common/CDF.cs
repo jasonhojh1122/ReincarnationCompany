@@ -23,6 +23,7 @@ public class CDF {
     }
 
     public int GetRandomID() {
+        if (priority.Count == 0) return -1;
         float rd = UnityEngine.Random.Range(0f, 1f);
         int id = cdf.BinarySearch(rd);
         if (id < 0) {

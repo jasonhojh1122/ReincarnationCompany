@@ -27,11 +27,13 @@ public class DriftingItemData : ScriptableObject {
 
     public DriftingPatternData GetRandomDriftingPattern() {
         int id = driftingPatternCDF.GetRandomID();
+        if (id < 0) return null;
         return driftingPatternDatas[id];
     }
 
     public Gesture.GestureData GetRandomGesture() {
         int id = gestureCDF.GetRandomID();
+        if (id < 0) return null;
         return gestureDatas[id];
     }
 

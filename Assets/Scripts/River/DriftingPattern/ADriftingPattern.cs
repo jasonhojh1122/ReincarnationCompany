@@ -8,9 +8,9 @@ public abstract class ADriftingPattern {
 
     public abstract void UpdatePosition(Transform transform);
 
-    public void Init(DriftingPatternData data) {
-        setting = data;
-        curSpeed = UnityEngine.Random.Range(setting.minSpeed, setting.maxSpeed);
+    public void Init(DriftingPatternData dpd, DriftingItemData did) {
+        setting = dpd;
+        curSpeed = UnityEngine.Random.Range(did.minSpeed, did.maxSpeed);
     }
 
 }

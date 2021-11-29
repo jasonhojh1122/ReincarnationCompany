@@ -38,6 +38,11 @@ namespace Character {
             set => paused = value;
         }
 
+        public bool HasFacing {
+            get => hasFacing;
+            set => hasFacing = value;
+        }
+
         public Dictionary<MovingState, RuntimeAnimatorController> AnimatorControllers {
             get => animatorControllers;
         }
