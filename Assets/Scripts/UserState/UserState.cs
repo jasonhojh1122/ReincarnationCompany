@@ -20,6 +20,8 @@ public class UserState {
     [SerializeField]
     public bool isNewGame;
 
+    public static string DefaultCharacterName = "無名人類";
+
     public UserState(string curCharacter, SerializableHashSet<string> usedCharacter,
             BackpackData backpack, int money) {
         this.curCharacter = curCharacter;
@@ -29,8 +31,9 @@ public class UserState {
     }
 
     public UserState() {
-        curCharacter = "無名人類";
+        curCharacter = DefaultCharacterName;
         usedCharacter = new SerializableHashSet<string>( new HashSet<string>() );
+        usedCharacter.ToHashSet().Add(DefaultCharacterName);
         backpack = new BackpackData();
         money = 0;
         isNewGame = true;

@@ -35,7 +35,8 @@ namespace Character.NPC {
 
         public void Init(string characterName) {
             UpdateCharacter(characterName);
-            DialogueJSON = Utils.Loader.Load<TextAsset>("DialogueData/" + characterName);
+            DialogueJSON = Utils.Loader.LoadDialogueData(characterName);
+            // DialogueJSON = Utils.Loader.Load<TextAsset>("DialogueData/" + characterName);
         }
 
         public virtual void Talk() {

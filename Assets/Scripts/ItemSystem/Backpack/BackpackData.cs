@@ -38,4 +38,8 @@ public class BackpackData {
         }
     }
 
+    public void ClearBackpack() {
+        _backpack.Clear();
+    }
+
 }

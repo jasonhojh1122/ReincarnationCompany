@@ -34,5 +34,10 @@ public class SerializableDict<TKey, TValue> : ISerializationCallbackReceiver{
         }
     }
 
+    public void Clear() {
+        values.Clear();
+        target.Clear();
+    }
+
 }
 

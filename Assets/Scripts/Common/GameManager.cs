@@ -26,12 +26,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         sceneSettings = new Stack<SceneSetting>();
         scenes = new Stack<Scene>();
-        if (UserStateManager.Instance.IsNewGame) {
-            StartCoroutine(LoadGameScene("_Start", false));
-        }
-        else {
-            StartCoroutine(LoadGameScene("_Main", false));
-        }
+        LoadScene("_Start");
     }
 
     public void LoadSceneAndClose(string name) {
@@ -45,14 +40,12 @@ public class GameManager : MonoBehaviour
     public void UnloadScene() {
         sceneSettings.Pop();
         scenes.Pop();
-        UserStateManager.Instance.SaveState();
         UserStateManager.Instance.LogState();
         SceneManager.UnloadSceneAsync(activeSceneName);
-        SceneManager.SetActiveScene(scenes.Peek());
-        Gesture.GestureManager.Instance.ClearQueue();
-        Time.timeScale = 1.0f;
-        baseUI.Set(sceneSettings.Peek());
-        joyStick.Target = sceneSettings.Peek().player.MovingTarget;
+        if (scenes.Count > 0) {
+            SceneManager.SetActiveScene(scenes.Peek());
+            OnSceneChange();
+        }
     }
 
     private IEnumerator LoadGameScene(string sceneName, bool closeOld) {
@@ -66,10 +59,17 @@ public class GameManager : MonoBehaviour
         }
         activeSceneName = sceneName;
         scenes.Push(SceneManager.GetSceneByName(activeSceneName));
-        SceneManager.SetActiveScene(scenes.Peek());
         sceneSettings.Push(SceneSetting.activeSceneSetting);
+        SceneManager.SetActiveScene(scenes.Peek());
+        OnSceneChange();
+    }
+
+    private void OnSceneChange() {
+        Time.timeScale = 1.0f;
+        Gesture.GestureManager.Instance.ClearQueue();
         baseUI.Set(sceneSettings.Peek());
-        joyStick.Target = sceneSettings.Peek().player.MovingTarget;
+        if (sceneSettings.Peek().player != null)
+            joyStick.Target = sceneSettings.Peek().player.MovingTarget;
         Debug.Log("Active Scene : " + activeSceneName);
     }
 

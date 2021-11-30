@@ -28,4 +28,9 @@ public class SerializableHashSet<TKey> : ISerializationCallbackReceiver {
         }
     }
 
+    public void Clear() {
+        keys.Clear();
+        target.Clear();
+    }
+
 }

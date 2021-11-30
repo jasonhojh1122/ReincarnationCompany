@@ -32,10 +32,11 @@ namespace Character.NPC.Dialogue {
         public Sprite Sprite {
             get => profile.sprite;
             set {
-                float width = mask.rectTransform.sizeDelta.x;
+                Utils.SpriteAndUI.FitSpriteToUIImage(mask.rectTransform, profile, value);
+                /* float width = mask.rectTransform.sizeDelta.x;
                 float height = width * value.rect.height / value.rect.width;
                 profile.rectTransform.sizeDelta = new Vector2(width, height);
-                profile.sprite = value;
+                profile.sprite = value; */
             }
         }
     }

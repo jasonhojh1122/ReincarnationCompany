@@ -16,18 +16,30 @@ public class BaseUI : MonoBehaviour {
     }
 
     public void Set(SceneSetting sceneSetting) {
-        if (!sceneSetting.showJoyStick) {
+        if (sceneSetting.showJoyStick) {
+            joystick.FadeIn();
+        }
+        else {
             joystick.FadeOut();
         }
-        if (!sceneSetting.showBackpack) {
+        if (sceneSetting.showBackpack) {
+            backpack.FadeIn();
+        }
+        else {
             backpack.FadeOut();
         }
-        if (!sceneSetting.showMoney) {
+        if (sceneSetting.showMoney) {
+            money.FadeIn();
+        }
+        else {
             money.FadeOut();
         }
-        if (!sceneSetting.showMap) {
-            // map.FadeOut();
+        /* if (sceneSetting.showMap) {
+            map.FadeIn();
         }
+        else {
+            map.FadeOut();
+        } */
     }
 
 
