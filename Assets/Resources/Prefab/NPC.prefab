@@ -343,5 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070b7940622bce3408681fab1e203d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterData: {fileID: 0}
+  _renderer: {fileID: 4283452232210346499}
   dialogueJSON: {fileID: 0}
   dialogueEvents: []

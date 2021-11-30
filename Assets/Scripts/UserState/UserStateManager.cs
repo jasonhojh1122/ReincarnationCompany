@@ -41,6 +41,11 @@ public sealed class UserStateManager {
         }
     }
 
+    public bool IsNewGame {
+        get => state.isNewGame;
+        set => state.isNewGame = value;
+    }
+
     private UserStateManager() {
         dest = Application.persistentDataPath + "/save.dat";
         LoadState();

@@ -9,6 +9,10 @@ namespace Character {
         MovingTarget movingTarget;
         protected static string[] stateName = System.Enum.GetNames(typeof(MovingState));
 
+        public MovingTarget MovingTarget {
+            get => movingTarget;
+        }
+
         protected override void Awake() {
             _renderer = GetComponent<SpriteRenderer>();
             col = GetComponent<BoxCollider2D>();

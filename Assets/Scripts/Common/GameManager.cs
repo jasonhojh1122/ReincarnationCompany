@@ -10,26 +10,28 @@ public class GameManager : MonoBehaviour
         get => _instance;
     }
 
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] Canvas canvas;
-    [SerializeField] List<CanvasGroupFader> faders;
-    // [SerializeField] GameObject vCam;
-    [SerializeField] Character.Player player;
+    [SerializeField] Material switchSceneMat;
+    [SerializeField] Canvas baseCanvas;
+    [SerializeField] BaseUI baseUI;
+    [SerializeField] JoyStick joyStick;
     private AsyncOperation async = null;
-    private string additiveScene;
-
-    public Character.Player Player {
-        get => player;
+    private string activeSceneName;
+    Stack<SceneSetting> sceneSettings;
+    Stack<Scene> scenes;
+    public Character.Player ActivePlayer {
+        get => SceneSetting.activeSceneSetting.player;
     }
 
     private void Awake() {
         _instance = this;
-    }
-
-    public void SetCameraPos(float yPos) {
-        Vector3 newPos = mainCamera.transform.position;
-        newPos.x = yPos;
-        mainCamera.transform.position = newPos;
+        sceneSettings = new Stack<SceneSetting>();
+        scenes = new Stack<Scene>();
+        if (UserStateManager.Instance.IsNewGame) {
+            StartCoroutine(LoadGameScene("_Start", false));
+        }
+        else {
+            StartCoroutine(LoadGameScene("_Main", false));
+        }
     }
 
     public void LoadSceneAndClose(string name) {
@@ -41,46 +43,38 @@ public class GameManager : MonoBehaviour
     }
 
     public void UnloadScene() {
-        FadeInUI();
+        sceneSettings.Pop();
+        scenes.Pop();
         UserStateManager.Instance.SaveState();
         UserStateManager.Instance.LogState();
-        SceneManager.UnloadSceneAsync(additiveScene);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("_Main"));
+        SceneManager.UnloadSceneAsync(activeSceneName);
+        SceneManager.SetActiveScene(scenes.Peek());
         Gesture.GestureManager.Instance.ClearQueue();
         Time.timeScale = 1.0f;
-        // vCam.SetActive(true);
+        baseUI.Set(sceneSettings.Peek());
+        joyStick.Target = sceneSettings.Peek().player.MovingTarget;
     }
 
     private IEnumerator LoadGameScene(string sceneName, bool closeOld) {
         if (closeOld) {
             UnloadScene();
         }
-        additiveScene = sceneName;
-        async = SceneManager.LoadSceneAsync(additiveScene, LoadSceneMode.Additive);
+        UserStateManager.Instance.SaveState();
+        async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         while (!async.isDone) {
             yield return null;
         }
-        FadeOutUI();
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(additiveScene));
-        // SetCameraPos(0);
-        // vCam.SetActive(false);
-        Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
-    }
-
-    private void FadeOutUI() {
-        foreach (CanvasGroupFader cgf in faders) {
-            cgf.FadeOut();
-        }
-    }
-
-    private void FadeInUI() {
-        foreach (CanvasGroupFader cgf in faders) {
-            cgf.FadeIn();
-        }
+        activeSceneName = sceneName;
+        scenes.Push(SceneManager.GetSceneByName(activeSceneName));
+        SceneManager.SetActiveScene(scenes.Peek());
+        sceneSettings.Push(SceneSetting.activeSceneSetting);
+        baseUI.Set(sceneSettings.Peek());
+        joyStick.Target = sceneSettings.Peek().player.MovingTarget;
+        Debug.Log("Active Scene : " + activeSceneName);
     }
 
     public void ToggleUI(bool state) {
-        canvas.gameObject.SetActive(state);
+        baseCanvas.gameObject.SetActive(state);
     }
 
     public void EndGame() {

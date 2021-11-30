@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/_Base.unity
+    guid: 7fdf3f3aab502ab4daa6de8d921074bb
+  - enabled: 1
+    path: Assets/Scenes/_Start.unity
+    guid: 3ba605bd2c670144698a771fc3247160
+  - enabled: 1
     path: Assets/Scenes/_Main.unity
     guid: 60e4ac17a2e12df42a00ea83c1e57545
+  - enabled: 1
+    path: Assets/Scenes/01-River-Start.unity
+    guid: f02c7e0b8086b0347a86f0885ab583e5
   - enabled: 1
     path: Assets/Scenes/01-River.unity
     guid: 493e3c9dbac46e145b0e970d1f1b3b6b

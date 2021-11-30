@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class CanvasGroupFader : MonoBehaviour {
 
     [SerializeField] float fadeSpeed = 10.0f;

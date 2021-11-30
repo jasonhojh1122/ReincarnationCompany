@@ -17,6 +17,9 @@ public class UserState {
     [SerializeField]
     public int money;
 
+    [SerializeField]
+    public bool isNewGame;
+
     public UserState(string curCharacter, SerializableHashSet<string> usedCharacter,
             BackpackData backpack, int money) {
         this.curCharacter = curCharacter;
@@ -30,6 +33,7 @@ public class UserState {
         usedCharacter = new SerializableHashSet<string>( new HashSet<string>() );
         backpack = new BackpackData();
         money = 0;
+        isNewGame = true;
     }
 
 }

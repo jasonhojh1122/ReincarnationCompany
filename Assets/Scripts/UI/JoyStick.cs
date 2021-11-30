@@ -9,6 +9,11 @@ public class JoyStick : MonoBehaviour, ITouchable {
     Vector2 beginPos;
     int fingerID;
 
+    public Character.MovingTarget Target {
+        get => target;
+        set => target = value;
+    }
+
     void Start() {
         mount = GetComponent<RectTransform>();
         fingerID = -1;

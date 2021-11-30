@@ -6,11 +6,12 @@ namespace Character.NPC {
         [SerializeField] NPC prefab;
 
         private void Start() {
-            LoadNPCs();
+            StartCoroutine(LoadNPCs());
         }
 
-        void LoadNPCs() {
-            foreach (NPCSetting setting in GameManager.Instance.Player.CharacterData.NPCs) {
+        System.Collections.IEnumerator LoadNPCs() {
+            yield return new WaitForEndOfFrame();
+            foreach (NPCSetting setting in GameManager.Instance.ActivePlayer.CharacterData.NPCs) {
                 var npc = GameObject.Instantiate<NPC>(prefab);
                 npc.transform.position = setting.position;
                 npc.Init(setting.baseData.itemName);
