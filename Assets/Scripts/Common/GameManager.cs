@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas baseCanvas;
     [SerializeField] BaseUI baseUI;
     [SerializeField] JoyStick joyStick;
+    [SerializeField] public TextMeshProUGUI debugText;
     private AsyncOperation async = null;
     private string activeSceneName;
     Stack<SceneSetting> sceneSettings;
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         sceneSettings = new Stack<SceneSetting>();
         scenes = new Stack<Scene>();
+        // debugText.text = UserStateManager.Instance.json;
         LoadScene("_Start");
     }
 
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
         baseUI.Set(sceneSettings.Peek());
         if (sceneSettings.Peek().player != null)
             joyStick.Target = sceneSettings.Peek().player.MovingTarget;
+        // debugText.text = "Active Scene : " + activeSceneName;
         Debug.Log("Active Scene : " + activeSceneName);
     }
 

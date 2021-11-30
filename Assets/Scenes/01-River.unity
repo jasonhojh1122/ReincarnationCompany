@@ -462,10 +462,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: -3001234539087056051, guid: 6c853b34d654f0b41b7c450f2111fd17, type: 3}
   itemPool:
-  - {fileID: 11400000, guid: b2983ddbf8ce39d4cba71b5c4888ec71, type: 2}
-  - {fileID: 11400000, guid: 86977640f6d3e7f45a8e5560217a0c9d, type: 2}
+  - {fileID: 11400000, guid: 92ffa43340e974e48a21bd69848471ec, type: 2}
   cdf:
-    priority: 0100000002000000
+    priority: 02000000
 --- !u!1 &187104491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,7 +1866,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2138714139
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 361ddc6b5f3d2f344881446d53388049, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2255,7 +2254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939997356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47, y: -1.92, z: -2.83}
+  m_LocalPosition: {x: 0.47, y: -3.74, z: -2.83}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 1}
   m_Children:
   - {fileID: 680354458}

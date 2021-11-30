@@ -23,11 +23,12 @@ public class UserState {
     public static string DefaultCharacterName = "無名人類";
 
     public UserState(string curCharacter, SerializableHashSet<string> usedCharacter,
-            BackpackData backpack, int money) {
+            BackpackData backpack, int money, bool isNewGame) {
         this.curCharacter = curCharacter;
         this.usedCharacter = usedCharacter;
         this.backpack = backpack;
         this.money = money;
+        this.isNewGame = isNewGame;
     }
 
     public UserState() {

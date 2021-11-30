@@ -52,6 +52,8 @@ public sealed class UserStateManager {
         LogState();
     }
 
+    public string json;
+
     /* void Awake() {
         dest = Application.persistentDataPath + "/save.dat";
         LoadState();
@@ -66,16 +68,17 @@ public sealed class UserStateManager {
 
     void LoadState() {
         if (File.Exists(dest)) {
-            string json = File.ReadAllText(dest);
+            json = File.ReadAllText(dest);
             state = JsonUtility.FromJson<UserState>(json);
         }
         else {
             state = new UserState();
+            SaveState();
         }
     }
 
     public void SaveState() {
-        string json = JsonUtility.ToJson(state);
+        json = JsonUtility.ToJson(state);
         File.WriteAllText(dest, json);
     }
 
