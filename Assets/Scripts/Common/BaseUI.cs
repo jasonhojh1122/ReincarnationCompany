@@ -12,7 +12,7 @@ public class BaseUI : MonoBehaviour {
         joystick.FadeIn();
         backpack.FadeIn();
         money.FadeIn();
-        // map.FadeIn();
+        map.FadeIn();
     }
 
     public void Set(SceneSetting sceneSetting) {
@@ -34,12 +34,12 @@ public class BaseUI : MonoBehaviour {
         else {
             money.FadeOut();
         }
-        /* if (sceneSetting.showMap) {
+        if (sceneSetting.showMap) {
             map.FadeIn();
         }
         else {
             map.FadeOut();
-        } */
+        }
     }
 
 

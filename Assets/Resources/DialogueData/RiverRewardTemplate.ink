@@ -1,11 +1,11 @@
 -> Main
 
 === Main ===
-感謝你對忘川整治的貢獻，你可以選擇一項獎勵
+感謝你對忘川整治的貢獻
 -> Choices
 
 === Choices ===
-獎勵
+你可以選擇一項額外獎勵
 + [ABC] #RewardA
     -> Confirm
 + [ABC] #RewardB

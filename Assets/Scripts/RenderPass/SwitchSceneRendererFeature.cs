@@ -13,7 +13,7 @@ public class SwitchSceneRendererFeature : ScriptableRendererFeature
         public Material material;
     }
 
-    [SerializeField] FeatureSettings settings = new FeatureSettings();
+    [SerializeField] public FeatureSettings settings = new FeatureSettings();
 
     RenderTargetHandle renderTargetHandle;
     SwitchSceneRenderPass renderPass;
