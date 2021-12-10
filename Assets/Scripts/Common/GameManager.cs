@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     void UnloadSceneFromAdditive() {
         sceneSettings.Pop();
         scenes.Pop();
-        UserStateManager.Instance.LogState();
+        // UserStateManager.Instance.LogState();
         SceneManager.UnloadSceneAsync(activeSceneName);
         if (scenes.Count > 0) {
             SceneManager.SetActiveScene(scenes.Peek());

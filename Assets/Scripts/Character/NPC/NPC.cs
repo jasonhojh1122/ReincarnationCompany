@@ -24,7 +24,7 @@ namespace Character.NPC {
 
         static Dialogue.DialogueManager dialogueManager;
 
-        private void Start() {
+        protected void Start() {
             if (dialogueManager == null)
                 dialogueManager = Dialogue.DialogueManager.Instance;
             eventMap = new Dictionary<string, UnityEvent>();

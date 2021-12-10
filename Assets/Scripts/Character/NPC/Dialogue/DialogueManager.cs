@@ -87,7 +87,7 @@ namespace Character.NPC.Dialogue {
             dialoguePanel.SetActive(true);
             if (npc.CharacterData != null)
                 profile.Sprite = npc.CharacterData.baseData.sprite;
-            UpdateDialogue();
+            OnTap();
             return curStory;
         }
 
@@ -98,9 +98,9 @@ namespace Character.NPC.Dialogue {
             HideChoices();
         }
 
-        public void UpdateDialogue() {
-            if (eventTags != null)
-                CheckEvent();
+        public void OnTap() {
+            /* if (eventTags != null)
+                CheckEvent(); */
 
             if (isShowingWords) {
                 StopAllCoroutines();
@@ -123,6 +123,7 @@ namespace Character.NPC.Dialogue {
 
         void OnWordsEnd() {
             eventTags = curStory.currentTags;
+            CheckEvent();
             Gesture.GestureManager.Instance.ClearQueue();
             isShowingWords = false;
             if (!curStory.canContinue && ShowChoices()) {
@@ -175,7 +176,7 @@ namespace Character.NPC.Dialogue {
             Gesture.Tap tap = new Gesture.Tap();
             tap.TargetCount = 1;
             tap.SingleDuration = float.MaxValue;
-            tap.OnSingleSatisfied.AddListener(UpdateDialogue);
+            tap.OnSingleSatisfied.AddListener(OnTap);
             return tap;
         }
 

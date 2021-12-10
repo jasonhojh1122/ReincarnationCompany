@@ -49,7 +49,7 @@ public sealed class UserStateManager {
     private UserStateManager() {
         dest = Application.persistentDataPath + "/save.dat";
         LoadState();
-        LogState();
+        // LogState();
     }
 
     public string json;

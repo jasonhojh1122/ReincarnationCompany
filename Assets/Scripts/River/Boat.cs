@@ -9,9 +9,6 @@ namespace River {
         [SerializeField] List<GrabPosition> grabPositions;
         [SerializeField] BoatLife boatLife;
         [SerializeField] RiverGestureIndicator indicator;
-        [SerializeField] TextMeshProUGUI moneyText;
-        [SerializeField] Transform moneyGainPrefab;
-        [SerializeField] Transform itemPickupPrefab;
 
         public RiverGestureIndicator Indicator {
             get => indicator;
@@ -26,6 +23,9 @@ namespace River {
 
         public void AddToLife(int amount) {
             boatLife.AddToLife(amount);
+            if (!boatLife.IsAlive()) {
+                GameManager.Instance.LoadSceneAndClose("01-River-Fail");
+            }
         }
 
         public void AddToMoney(int amount) {
@@ -45,13 +45,6 @@ namespace River {
             indicator.gameObject.SetActive(false);
         }
 
-        public void ShowMoneyGain() {
-
-        }
-
-        public void ShowItemPickup() {
-
-        }
 
     }
 }

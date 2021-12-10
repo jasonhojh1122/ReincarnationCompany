@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 218804338}
   - component: {fileID: 218804337}
   - component: {fileID: 218804336}
-  - component: {fileID: 218804335}
+  - component: {fileID: 218804339}
   m_Layer: 8
   m_Name: NPC
   m_TagString: Obstacle
@@ -142,92 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &218804335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218804334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1a60d7863b52b54a84227fdfd808d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterData: {fileID: 11400000, guid: 483669a09747dcd458af3615331d4d0b, type: 2}
-  dialogueJSON: {fileID: 4900000, guid: cb6fc86b9421ff54bb7c8dae35c5beb0, type: 3}
-  dialogueEvents:
-  - Tag: UpdateChoices
-    OnChoice:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 218804335}
-          m_TargetAssemblyTypeName: Character.NPC.RiverEndNPC, Assembly-CSharp
-          m_MethodName: UpdateChoices
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Tag: RewardA
-    OnChoice:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 218804335}
-          m_TargetAssemblyTypeName: Character.NPC.RiverEndNPC, Assembly-CSharp
-          m_MethodName: RewardA
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Tag: RewardB
-    OnChoice:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 218804335}
-          m_TargetAssemblyTypeName: Character.NPC.RiverEndNPC, Assembly-CSharp
-          m_MethodName: RewardB
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Tag: RewardC
-    OnChoice:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 218804335}
-          m_TargetAssemblyTypeName: Character.NPC.RiverEndNPC, Assembly-CSharp
-          m_MethodName: RewardC
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  possibleRewards:
-  - {fileID: 11400000, guid: 6b94faf92e2276046bd115d56a338c81, type: 2}
-  - {fileID: 11400000, guid: 5adfe3309fc29914c95fec3c9727588c, type: 2}
-  - {fileID: 11400000, guid: cb92d0ad11c7cb040b92aca9007d7a95, type: 2}
-  - {fileID: 11400000, guid: 5177d5f6074c4f644b5d793970d64533, type: 2}
-  cdf:
-    priority: 01000000010000000200000002000000
 --- !u!61 &218804336
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -321,6 +235,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &218804339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218804334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2b4891469d5a24da84ff728b83eabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: 483669a09747dcd458af3615331d4d0b, type: 2}
+  dialogueJSON: {fileID: 4900000, guid: f7e66c286b2eae74f90aa00a13a577cd, type: 3}
+  dialogueEvents:
+  - Tag: CutMoney
+    OnChoice:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 218804339}
+          m_TargetAssemblyTypeName: Character.NPC.RiverFailNPC, Assembly-CSharp
+          m_MethodName: CutMoney
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &359091689
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +543,7 @@ MonoBehaviour:
   clickUpEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 218804335}
+      - m_Target: {fileID: 218804339}
         m_TargetAssemblyTypeName: Character.NPC.NPC, Assembly-CSharp
         m_MethodName: Talk
         m_Mode: 1

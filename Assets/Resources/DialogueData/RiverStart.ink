@@ -14,7 +14,8 @@
     -> END
     
 === EnoughMoney ===
-來吧，發揮你的實力吧。 # Enter
+來吧，發揮你的實力吧。
+# Enter
 ->END
     
 === RunOutOfMoney ===

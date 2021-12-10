@@ -1,0 +1,1 @@
+﻿{"inkVersion":20,"root":[[{"->":"Main"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"Main":["^你竟然把船搞砸了...","\n","^我們需要你負擔 100 元的賠償金","\n",{"->":"EnoughMoney"},{"#f":1}],"EnoughMoney":["^好了，扣款完畢，下次請注意一些","\n",{"#":"CutMoney"},"end",{"#f":1}],"RunOutOfMoney":["^你的餘額不足了哦。","\n","end",{"#f":1}],"#f":1}],"listDefs":{}}
