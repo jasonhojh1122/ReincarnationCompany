@@ -8,20 +8,9 @@ public class Brewer : MonoBehaviour {
 
     [SerializeField] List<Character.CharacterData> characterData;
     [SerializeField] Brew.BrewViewer brewViewer;
-    [SerializeField] CanvasGroupFader uiFader;
     [SerializeField] Character.Player player;
-    [SerializeField] TextMeshPro title;
-
-    GameManager gameManager;
 
     string newCharacter;
-    public string NewCharacter {
-        get => newCharacter;
-    }
-
-    private void Awake() {
-        gameManager = FindObjectOfType<GameManager>();
-    }
 
     public void BrewAndDrink() {
         Dictionary<string, int> ingredients = new Dictionary<string, int>();
@@ -48,8 +37,7 @@ public class Brewer : MonoBehaviour {
             }
             if (success) {
                 newCharacter = data.baseData.itemName;
-                uiFader.FadeOut();
-                StartCoroutine(Reincarnate());
+                Reincarnate();
                 break;
             }
         }
@@ -85,18 +73,10 @@ public class Brewer : MonoBehaviour {
         }
     }
 
-    IEnumerator Reincarnate() {
-        gameManager.ToggleUI(false);
-        title.text = "你已經成功投胎為 " + newCharacter;
+    void Reincarnate() {
         UserStateManager.Instance.UsedCharacter.Add(UserStateManager.Instance.CurCharacter);
         UserStateManager.Instance.CurCharacter = newCharacter;
-        player.UpdateCharacter(UserStateManager.Instance.CurCharacter);
-        Debug.Log(newCharacter);
-        yield return null;
-    }
-
-    public void EndGame() {
-        gameManager.EndGame();
+        GameManager.Instance.LoadSceneAndClose("04-End");
     }
 
 }

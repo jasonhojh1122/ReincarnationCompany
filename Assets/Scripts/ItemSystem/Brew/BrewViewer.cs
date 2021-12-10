@@ -6,6 +6,10 @@ namespace Brew {
 public class BrewViewer : ItemViewer {
 
     [SerializeField] List<BrewDisplaySlot> displaySlots;
+    [SerializeField] List<Transform> bookShelves;
+    [SerializeField] Transform bookShelfPrefab;
+    [SerializeField] IngredientSlot brewIngredientSlotPrefab;
+
     public List<BrewDisplaySlot> DispalySlots {
         get => displaySlots;
     }
@@ -19,15 +23,18 @@ public class BrewViewer : ItemViewer {
             slot.itemViewer = this;
         }
 
+        int i = 0;
         slotMap = new Dictionary<string, ItemSlot>();
         foreach (KeyValuePair<string, int> pair in UserStateManager.Instance.Backpack.backpackDict) {
-            Debug.Log(pair.Key + " " + pair.Value.ToString());
-            ItemSlot slot = Instantiate<ItemSlot>(slotPrefab);
-            slot.transform.SetParent(content, false);
+            if (i >= 6 && i % 2 == 0) {
+                bookShelves.Add(GameObject.Instantiate<Transform>(bookShelfPrefab));
+            }
+            var slot = GameObject.Instantiate<IngredientSlot>(brewIngredientSlotPrefab);
             slot.itemViewer = this;
             slot.Init(itemPool.ingredientPool[pair.Key]);
-            slots.Add(slot);
+            slot.transform.SetParent(bookShelves[i/2].transform, false);
             slotMap.Add(pair.Key, slot);
+            i++;
         }
         UpdateContent();
     }
@@ -38,10 +45,10 @@ public class BrewViewer : ItemViewer {
     }
 
     public override void Show(BaseItemData itemData) {
+        if (UserStateManager.Instance.Backpack.GetItemNum(itemData.itemName) <= 0)
+            return;
         foreach (BrewDisplaySlot slot in displaySlots) {
             if (slot.IsEmpty) {
-                if (UserStateManager.Instance.Backpack.GetItemNum(itemData.itemName) < 0)
-                    return;
                 slot.SetItem(itemData);
                 slot.OnReturn.AddListener(delegate{ReturnItem(itemData);});
                 UserStateManager.Instance.Backpack.AddItemToBackpack(itemData.itemName, -1);

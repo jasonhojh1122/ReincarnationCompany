@@ -211,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemImage: {fileID: 7368578147318341879}
   itemViewer: {fileID: 0}
+  image: {fileID: 7368578147318341879}
   OnReturn:
     m_PersistentCalls:
       m_Calls: []
