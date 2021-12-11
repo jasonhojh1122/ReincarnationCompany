@@ -31,6 +31,11 @@ public sealed class UserStateManager {
         set => state.curCharacter = value;
     }
 
+    public string NewCharacter {
+        get => state.newCharacter;
+        set => state.newCharacter = value;
+    }
+
     public int Money {
         get => state.money;
         set {

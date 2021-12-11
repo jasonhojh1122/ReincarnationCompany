@@ -74,11 +74,8 @@ public class GameManager : MonoBehaviour
         pastTime = 0.0f;
         yield return StartCoroutine(ToggleMask(true));
         yield return StartCoroutine(LoadGameScene(sceneName));
-        Debug.Log(sceneName + " WatiFor: " + Mathf.Clamp(holdDur - pastTime, 0.0f, holdDur));
         yield return new WaitForSeconds(Mathf.Clamp(holdDur - pastTime, 0.0f, holdDur));
-        Debug.Log(sceneName);
         yield return StartCoroutine(ToggleMask(false));
-        Debug.Log(sceneName);
         OnSceneChange();
     }
 

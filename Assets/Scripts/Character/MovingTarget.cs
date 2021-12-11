@@ -16,17 +16,17 @@ namespace Character {
     [RequireComponent(typeof(Animator))]
     public class MovingTarget : MonoBehaviour {
 
-        [SerializeField] float speed;
-        [SerializeField] bool hasFacing = true;
+        [SerializeField] protected float speed;
+        [SerializeField] protected bool hasFacing = true;
         [SerializeField] int obstacleLayer = 8;
 
-        Dictionary<MovingState, RuntimeAnimatorController> animatorControllers;
-        Animator animator;
-        BoxCollider2D col;
-        Rigidbody2D rb;
-        float blockThreshold;
-        int mask;
-        bool paused;
+        protected Dictionary<MovingState, RuntimeAnimatorController> animatorControllers;
+        protected Animator animator;
+        protected BoxCollider2D col;
+        protected Rigidbody2D rb;
+        protected float blockThreshold;
+        protected int mask;
+        protected bool paused;
 
         public float Speed {
             get => speed;
@@ -91,7 +91,7 @@ namespace Character {
             return colliders.Length > 0;
         }
 
-        protected void UpdateFacing(Vector2 vel) {
+        protected virtual void UpdateFacing(Vector2 vel) {
             if (Utils.Fuzzy.CloseVector2(vel, Vector2.zero)) {
                 animator.runtimeAnimatorController = animatorControllers[MovingState.IDLE];
                 return;

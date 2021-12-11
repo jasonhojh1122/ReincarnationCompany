@@ -6,7 +6,7 @@ namespace Character {
     [RequireComponent(typeof(MovingTarget))]
     public class Player : Character {
 
-        MovingTarget movingTarget;
+        protected MovingTarget movingTarget;
         protected static string[] stateName = System.Enum.GetNames(typeof(MovingState));
 
         public MovingTarget MovingTarget {
@@ -20,7 +20,7 @@ namespace Character {
             UpdateCharacter(UserStateManager.Instance.CurCharacter);
         }
 
-        private void Start() {
+        protected virtual void Start() {
             SetupMovingTarget();
         }
 

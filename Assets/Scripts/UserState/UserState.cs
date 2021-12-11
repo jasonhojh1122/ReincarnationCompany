@@ -9,6 +9,9 @@ public class UserState {
     public string curCharacter;
 
     [SerializeField]
+    public string newCharacter;
+
+    [SerializeField]
     public SerializableHashSet<string> usedCharacter;
 
     [SerializeField]
