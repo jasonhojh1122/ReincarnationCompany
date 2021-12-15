@@ -24,8 +24,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a638de3cd7db18c40a7959e8ede225b1, type: 2}
   - {fileID: 11400000, guid: cb92d0ad11c7cb040b92aca9007d7a95, type: 2}
   monster:
-  - {fileID: 11400000, guid: 22a1495161408d54aaaca6b7c4eb1cb4, type: 2}
-  - {fileID: 11400000, guid: 49e147fa21a4ab545a38e95262c860fa, type: 2}
+  - {fileID: 11400000, guid: abbceb46ea2a97f45a5fa1c22ab33e6c, type: 2}
   character:
   - {fileID: 11400000, guid: e6d44b3c81eedfe4aa6faf9563685047, type: 2}
   - {fileID: 11400000, guid: bd9d155add343834c84e1b35e3c4d9d3, type: 2}

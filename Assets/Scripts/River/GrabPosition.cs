@@ -7,8 +7,12 @@ namespace River {
         [SerializeField] Boat boat;
         Collider2D col;
         River.DriftingItem driftingItem;
+        static RiverGestureIndicator indicator;
 
         private void Awake() {
+            if (indicator == null) {
+                indicator = FindObjectOfType<RiverGestureIndicator>();
+            }
             col = GetComponent<Collider2D>();
         }
 
@@ -28,9 +32,9 @@ namespace River {
             var gesture = driftingItem.Gesture;
             gesture.OnFailed.AddListener(OnFinished);
             gesture.OnSatisfied.AddListener(OnFinished);
-            gesture.OnSingleSatisfied.AddListener(boat.Indicator.UpdateCount);
-            gesture.OnStart.AddListener(delegate{boat.ShowIndicator(gesture);});
-            gesture.OnReset.AddListener(boat.Indicator.Reset);
+            gesture.OnSingleSatisfied.AddListener(indicator.UpdateCount);
+            gesture.OnStart.AddListener(delegate{indicator.Show(gesture);});
+            gesture.OnReset.AddListener(indicator.ResetCount);
 
             Gesture.GestureManager.Instance.Enqueue(gesture);
 
@@ -38,7 +42,7 @@ namespace River {
         }
 
         public void OnFinished() {
-            boat.Indicator.gameObject.SetActive(false);
+            indicator.End();
             col.enabled = true;
         }
 

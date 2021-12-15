@@ -50,6 +50,7 @@ public class BrewViewer : ItemViewer {
         foreach (BrewDisplaySlot slot in displaySlots) {
             if (slot.IsEmpty) {
                 slot.SetItem(itemData);
+                slot.OnReturn.RemoveAllListeners();
                 slot.OnReturn.AddListener(delegate{ReturnItem(itemData);});
                 UserStateManager.Instance.Backpack.AddItemToBackpack(itemData.itemName, -1);
                 slotMap[itemData.itemName].UpdateContent();

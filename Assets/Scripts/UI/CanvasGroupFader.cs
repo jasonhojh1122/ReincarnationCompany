@@ -29,6 +29,7 @@ public class CanvasGroupFader : MonoBehaviour {
     }
 
     public void Toggle() {
+        StopAllCoroutines();
         isOn = !isOn;
         if (isOn)
             StartCoroutine(TurnOn());
@@ -37,16 +38,14 @@ public class CanvasGroupFader : MonoBehaviour {
     }
 
     public void FadeOut() {
-        if (isOn) {
-            isOn = false;
-            StartCoroutine(TurnOff());
-        }
+        StopAllCoroutines();
+        isOn = false;
+        StartCoroutine(TurnOff());
     }
     public void FadeIn() {
-        if (!isOn) {
-            isOn = true;
-            StartCoroutine(TurnOn());
-        }
+        StopAllCoroutines();
+        isOn = true;
+        StartCoroutine(TurnOn());
     }
 
     IEnumerator TurnOn() {

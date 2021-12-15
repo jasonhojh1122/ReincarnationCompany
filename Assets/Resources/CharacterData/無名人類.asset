@@ -20,5 +20,5 @@ MonoBehaviour:
   - baseData: {fileID: 11400000, guid: bd9d155add343834c84e1b35e3c4d9d3, type: 2}
     position: {x: 15, y: 190, z: 0}
   life: 3
-  speed: 6
+  speed: 10
   defaultMoney: 300

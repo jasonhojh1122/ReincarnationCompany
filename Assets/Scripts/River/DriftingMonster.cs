@@ -10,7 +10,7 @@ namespace River {
         }
 
         public override void GestureFailed() {
-            boat.AddToLife(-1);
+            // boat.AddToLife(-1);
             Destroy(gameObject);
         }
 

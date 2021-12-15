@@ -21,7 +21,8 @@ MonoBehaviour:
   driftingPatternCDF:
     priority: 01000000
   gestureDatas:
-  - {fileID: 11400000, guid: 7a5d5a6f53ea4b943bdd1324fdeb128e, type: 2}
+  - {fileID: 11400000, guid: 4fdaec22f62d73d44995f78793e22428, type: 2}
+  - {fileID: 11400000, guid: c2d5d7cb032c43e4cb69d197777c81d2, type: 2}
   - {fileID: 11400000, guid: 651479f2f9a0f17439d2eb9131bdb4da, type: 2}
   gestureCDF:
-    priority: 0100000002000000
+    priority: 010000000100000002000000

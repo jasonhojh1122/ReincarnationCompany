@@ -10,7 +10,6 @@ public class GestureData : ScriptableObject {
     public string gestureName;
     public int minCount;
     public int maxCount;
-    public Sprite indicateSprite;
 
     [Header("Time setting in seconds")]
     public float singleDuration;

@@ -6,4 +6,8 @@ public class SceneLoader : MonoBehaviour {
         GameManager.Instance.LoadScene(sceneName);
     }
 
+    public void LoadSceneAndClose(string sceneName) {
+        GameManager.Instance.LoadSceneAndClose(sceneName);
+    }
+
 }

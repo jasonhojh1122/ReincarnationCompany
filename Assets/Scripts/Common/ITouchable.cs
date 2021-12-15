@@ -1,4 +1,4 @@
 using UnityEngine;
 public interface ITouchable {
-    void Touched(Touch touch);
+    bool Touched(Touch touch);
 }

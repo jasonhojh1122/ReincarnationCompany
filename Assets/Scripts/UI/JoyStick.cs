@@ -7,7 +7,7 @@ public class JoyStick : MonoBehaviour, ITouchable {
     [SerializeField] Character.MovingTarget target;
     RectTransform mount;
     Vector2 beginPos;
-    int fingerID;
+    int fingerId;
 
     public Character.MovingTarget Target {
         get => target;
@@ -15,48 +15,42 @@ public class JoyStick : MonoBehaviour, ITouchable {
     }
 
     void Start() {
+        fingerId = -1;
         mount = GetComponent<RectTransform>();
-        fingerID = -1;
         InitHead();
     }
 
-    private void Update() {
-        if (fingerID >= 0)
-            MoveHead();
-    }
-
-    protected void FixedUpdate() {
-        if (target != null)
-            UpdatePos();
-    }
-
-    protected void UpdatePos() {
-        Vector2 offset = GetOffset();
-        target.Move(GetOffset());
-    }
-
-    public void Touched(Touch touch) {
-        if (touch.fingerId == fingerID) {
-            return;
-        }
-        else if (touch.phase == TouchPhase.Began){
-            fingerID = touch.fingerId;
+    public bool Touched(Touch touch) {
+        if (touch.phase == TouchPhase.Began) {
+            fingerId = touch.fingerId;
             beginPos = touch.position;
         }
+        else if (touch.fingerId != fingerId) {
+            return false;
+        }
+
+        MoveHead(touch);
+        UpdateTargetPos();
+
+        return true;
+    }
+    protected void UpdateTargetPos() {
+        if (target == null) return;
+        Vector2 offset = GetOffset();
+        target.Move(GetOffset());
     }
 
     void InitHead() {
         head.anchoredPosition = Vector2.zero;
     }
 
-    void MoveHead() {
-        Touch touch = Input.GetTouch(fingerID);
+    void MoveHead(Touch touch) {
         if (touch.phase == TouchPhase.Began) {
             beginPos = touch.position;
         }
         else if (touch.phase == TouchPhase.Ended) {
             InitHead();
-            fingerID = -1;
+            fingerId = -1;
             return;
         }
 

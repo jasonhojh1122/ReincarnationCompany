@@ -16,16 +16,7 @@ public abstract class AGesture {
     protected float gestureStartTime;
     protected string name;
     protected int targetCount, remainCount;
-    protected Indicator indicator;
     protected float singleDuration;
-
-    public Indicator Indicator {
-        get => indicator;
-        set {
-            indicator = value;
-            indicator.Init(gestureData.name, remainCount, gestureData.indicateSprite);
-        }
-    }
 
     public GestureData GestureData {
         get => gestureData;

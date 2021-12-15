@@ -6,6 +6,8 @@ namespace Character {
     [RequireComponent(typeof(MovingTarget))]
     public class Player : Character {
 
+        [SerializeField] float speedMultiplier = 1.0f;
+
         protected MovingTarget movingTarget;
         protected static string[] stateName = System.Enum.GetNames(typeof(MovingState));
 
@@ -25,7 +27,7 @@ namespace Character {
         }
 
         protected void SetupMovingTarget() {
-            movingTarget.Speed = characterData.speed;
+            movingTarget.Speed = characterData.speed * speedMultiplier;
             if (!movingTarget.HasFacing) return;
             foreach (string s in stateName) {
                 var controller = Utils.Loader.Load<RuntimeAnimatorController>(
