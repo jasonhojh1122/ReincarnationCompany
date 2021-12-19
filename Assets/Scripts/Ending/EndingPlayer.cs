@@ -14,6 +14,7 @@ public class EndingPlayer : Character.Player {
     public void Reincarnate()
     {
         UserStateManager.Instance.CurCharacter = UserStateManager.Instance.NewCharacter;
+        UserStateManager.Instance.IsNewGame = true;
         GameManager.Instance.LoadSceneAndClose("04-End-NewCharacter");
     }
 }

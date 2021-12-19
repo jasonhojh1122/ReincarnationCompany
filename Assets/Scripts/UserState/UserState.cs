@@ -12,7 +12,7 @@ public class UserState {
     public string newCharacter;
 
     [SerializeField]
-    public SerializableHashSet<string> usedCharacter;
+    public SerializableDict<string, SerializableHashSet<string>> finishedConversation;
 
     [SerializeField]
     public BackpackData backpack;
@@ -25,10 +25,10 @@ public class UserState {
 
     public static string DefaultCharacterName = "無名人類";
 
-    public UserState(string curCharacter, SerializableHashSet<string> usedCharacter,
+    public UserState(string curCharacter, SerializableDict<string, SerializableHashSet<string>> finishedConversation,
             BackpackData backpack, int money, bool isNewGame) {
         this.curCharacter = curCharacter;
-        this.usedCharacter = usedCharacter;
+        this.finishedConversation = finishedConversation;
         this.backpack = backpack;
         this.money = money;
         this.isNewGame = isNewGame;
@@ -36,8 +36,8 @@ public class UserState {
 
     public UserState() {
         curCharacter = DefaultCharacterName;
-        usedCharacter = new SerializableHashSet<string>( new HashSet<string>() );
-        usedCharacter.ToHashSet().Add(DefaultCharacterName);
+        finishedConversation = new SerializableDict<string, SerializableHashSet<string>>(new Dictionary<string, SerializableHashSet<string>>());
+        finishedConversation.ToDictionary().Add(DefaultCharacterName, new SerializableHashSet<string>(new HashSet<string>()));
         backpack = new BackpackData();
         money = 0;
         isNewGame = true;

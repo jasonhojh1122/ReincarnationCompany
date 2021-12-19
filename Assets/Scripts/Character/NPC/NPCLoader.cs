@@ -14,7 +14,7 @@ namespace Character.NPC {
             foreach (NPCSetting setting in GameManager.Instance.ActivePlayer.CharacterData.NPCs) {
                 var npc = GameObject.Instantiate<NPC>(prefab);
                 npc.transform.position = setting.position;
-                npc.Init(setting.baseData.itemName);
+                npc.Init(GameManager.Instance.ActivePlayer.CharacterData.baseData.itemName, setting.baseData.itemName);
             }
         }
 

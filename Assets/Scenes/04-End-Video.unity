@@ -157,6 +157,7 @@ MonoBehaviour:
   showBackpack: 0
   showMap: 0
   showMoney: 0
+  bgm: {fileID: 0}
   canvas: {fileID: 0}
 --- !u!4 &430846138
 Transform:

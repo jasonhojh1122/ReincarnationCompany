@@ -29,6 +29,8 @@ namespace Character {
 
         public BaseItemData baseData;
         public List<Rule> rules;
+        public bool withStory = false;
+        public Sprite artWords;
         public List<NPCSetting> NPCs;
         public int life = 3;
         public float speed = 12;

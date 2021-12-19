@@ -22,8 +22,8 @@ public sealed class UserStateManager {
         get => state.backpack;
     }
 
-    public HashSet<string> UsedCharacter {
-        get => state.usedCharacter.ToHashSet();
+    public Dictionary<string, SerializableHashSet<string>> FinishedConversation {
+        get => state.finishedConversation.ToDictionary();
     }
 
     public string CurCharacter {
@@ -91,12 +91,14 @@ public sealed class UserStateManager {
         Debug.Log(CurCharacter);
 
         string log = "";
-        HashSet<string> usedCharacter = UsedCharacter;
-        foreach (string s in usedCharacter) {
-            log += s;
-            log += ", ";
+        foreach (KeyValuePair<string, SerializableHashSet<string>> p in FinishedConversation) {
+            log += p.Key + ":\n";
+            foreach (string s in p.Value.ToHashSet()) {
+                log += s + ", ";
+            }
+            log += "\n";
         }
-        Debug.Log("Used Character: " + log);
+        Debug.Log("Used Character: \n" + log);
 
         log = "";
         Dictionary<string, int> backpackDict = Backpack.backpackDict;

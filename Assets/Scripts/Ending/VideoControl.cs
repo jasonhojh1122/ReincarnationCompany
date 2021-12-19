@@ -18,16 +18,14 @@ public class VideoControl : MonoBehaviour
     {
         while (!videoPlayer.isPrepared)
         {
-            Debug.Log("Not Prepared");
             yield return null;
         }
         videoPlayer.Play();
-        Debug.Log("Played");
     }
 
     void VideoEnd(UnityEngine.Video.VideoPlayer vp)
     {
-        vp.Stop();
+        vp.Pause();
         GameManager.Instance.LoadSceneAndClose(loadSceneName);
     }
 }

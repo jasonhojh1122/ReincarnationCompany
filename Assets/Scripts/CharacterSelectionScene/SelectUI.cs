@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace CharacterSelection {
 
@@ -10,19 +11,19 @@ namespace CharacterSelection {
         SelectionCard activeCard;
 
         private void Start() {
-            foreach (string characterName in UserStateManager.Instance.UsedCharacter) {
-                Debug.Log(characterName);
-                AddNewCard(characterName);
+            foreach (KeyValuePair<string, SerializableHashSet<string>> pair in UserStateManager.Instance.FinishedConversation) {
+                var characterData = Utils.Loader.LoadCharacterData(pair.Key);
+                if (characterData.withStory)
+                    AddNewCard(pair.Key, characterData);
             }
         }
 
-        void AddNewCard(string characterName) {
+        void AddNewCard(string characterName, Character.CharacterData characterData) {
             var newCard = GameObject.Instantiate<SelectionCard>(cardPrefab);
-            var characterData = Utils.Loader.LoadCharacterData(characterName);
             newCard.characterData = characterData;
             newCard.selectUI = this;
             newCard.Init();
-            newCard.transform.SetParent(content.transform);
+            newCard.transform.SetParent(content.transform, false);
         }
 
         public void SelectCard(SelectionCard selectionCard) {

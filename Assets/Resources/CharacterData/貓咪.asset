@@ -22,7 +22,15 @@ MonoBehaviour:
     itemData: {fileID: 11400000, guid: 6b94faf92e2276046bd115d56a338c81, type: 2}
     minAmount: 1
     maxAmount: 1
-  NPCs: []
+  withStory: 1
+  artWords: {fileID: 21300000, guid: 47a1ef62c4345914a9bb0808bab6efae, type: 3}
+  NPCs:
+  - baseData: {fileID: 11400000, guid: 0e359806c9a5d104bbb0e3ac35a7f89c, type: 2}
+    position: {x: 18, y: 192, z: 0}
+  - baseData: {fileID: 11400000, guid: c59987562f42f894392b93085a7c6878, type: 2}
+    position: {x: -15, y: 186, z: 0}
+  - baseData: {fileID: 11400000, guid: 750545ba349a04f41b198772b188f6b7, type: 2}
+    position: {x: 2, y: 188, z: 0}
   life: 3
   speed: 12
   defaultMoney: 600

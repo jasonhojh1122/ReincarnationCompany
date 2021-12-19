@@ -8,7 +8,7 @@ public class CharacterSlot : ItemSlot {
     bool used;
 
     public override void UpdateContent() {
-        used = UserStateManager.Instance.UsedCharacter.Contains(itemData.itemName);
+        used = UserStateManager.Instance.FinishedConversation.ContainsKey(itemData.itemName);
         if (used) {
             itemImage.color = tint;
         }

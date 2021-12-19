@@ -74,7 +74,8 @@ public class Brewer : MonoBehaviour {
     }
 
     void Reincarnate() {
-        UserStateManager.Instance.UsedCharacter.Add(UserStateManager.Instance.CurCharacter);
+        if (!UserStateManager.Instance.FinishedConversation.ContainsKey(newCharacter))
+            UserStateManager.Instance.FinishedConversation.Add(newCharacter, new SerializableHashSet<string>(new HashSet<string>()));
         UserStateManager.Instance.NewCharacter = newCharacter;
         GameManager.Instance.LoadSceneAndClose("04-End-Video");
     }

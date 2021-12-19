@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: e6d44b3c81eedfe4aa6faf9563685047, type: 2}
   rules: []
+  withStory: 1
+  artWords: {fileID: 0}
   NPCs:
   - baseData: {fileID: 11400000, guid: d44beb8cca979b94db3fe1b7f9bee756, type: 2}
     position: {x: -5, y: 193, z: 0}
   - baseData: {fileID: 11400000, guid: bd9d155add343834c84e1b35e3c4d9d3, type: 2}
     position: {x: 15, y: 190, z: 0}
+  - baseData: {fileID: 11400000, guid: cd1d6702e5b25484587b1f73feffb2c1, type: 2}
+    position: {x: -18, y: 208, z: 0}
+  - baseData: {fileID: 11400000, guid: 750545ba349a04f41b198772b188f6b7, type: 2}
+    position: {x: 2, y: 188, z: 0}
   life: 3
   speed: 10
   defaultMoney: 300

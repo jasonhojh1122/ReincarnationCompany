@@ -17,7 +17,9 @@ MonoBehaviour:
   - ruleState: 0
     itemData: {fileID: 11400000, guid: 511cbbc5f0f318543aa178e40c3bd85c, type: 2}
     minAmount: 1
-    maxAmount: 1
+    maxAmount: 10
+  withStory: 0
+  artWords: {fileID: 21300000, guid: a732e56ed84360b4f9663e70341bc51b, type: 3}
   NPCs: []
   life: 3
   speed: 12

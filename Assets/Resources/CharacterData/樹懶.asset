@@ -18,6 +18,8 @@ MonoBehaviour:
     itemData: {fileID: 0}
     minAmount: 1
     maxAmount: 2
+  withStory: 0
+  artWords: {fileID: 21300000, guid: c6f07f1b16b772a4f8c1c2eec47a1a16, type: 3}
   NPCs: []
   life: 4
   speed: 8

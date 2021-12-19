@@ -9,6 +9,7 @@ namespace CharacterSelection {
         [SerializeField] public GameObject selectedIndicator;
         [SerializeField] UnityEngine.UI.Image charaterImage;
         [SerializeField] TextMeshProUGUI characterDescription;
+        [SerializeField] TextMeshProUGUI conversationText;
         [SerializeField] public UnityEngine.UI.Button button;
 
         public SelectUI selectUI;
@@ -23,6 +24,9 @@ namespace CharacterSelection {
         public void Init() {
             Utils.SpriteAndUI.FitSpriteToUIImage(charaterImage.rectTransform, charaterImage, characterData.baseData.sprite);
             characterDescription.text = characterData.baseData.description;
+            conversationText.text = "故事完成 " +
+                UserStateManager.Instance.FinishedConversation[characterData.baseData.itemName].ToHashSet().Count.ToString() +
+                "/" + characterData.NPCs.Count.ToString();
         }
 
         private void SelectCard() {
