@@ -2342,6 +2342,7 @@ MonoBehaviour:
   showBackpack: 1
   showMap: 0
   showMoney: 1
+  bgm: {fileID: 8300000, guid: 5e88f37990398974097b88dbea1f36f0, type: 3}
   canvas: {fileID: 0}
 --- !u!4 &1136333740
 Transform:

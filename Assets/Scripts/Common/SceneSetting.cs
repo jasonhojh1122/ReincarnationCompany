@@ -11,6 +11,8 @@ public class SceneSetting : MonoBehaviour {
 
     public bool showMoney;
 
+    public AudioClip bgm;
+
     public Canvas canvas;
 
     public static SceneSetting activeSceneSetting;

@@ -1106,6 +1106,7 @@ MonoBehaviour:
   showBackpack: 1
   showMap: 1
   showMoney: 1
+  bgm: {fileID: 8300000, guid: a9874ec94fa01f44281ef66ec79d5e66, type: 3}
   canvas: {fileID: 522757288}
 --- !u!4 &2007128936
 Transform:

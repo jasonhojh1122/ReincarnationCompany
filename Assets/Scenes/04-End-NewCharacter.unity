@@ -157,6 +157,7 @@ MonoBehaviour:
   showBackpack: 0
   showMap: 0
   showMoney: 0
+  bgm: {fileID: 8300000, guid: fbb1caaaf725c6d47b1ec98fe4c60082, type: 3}
   canvas: {fileID: 0}
 --- !u!4 &430846138
 Transform:
@@ -1246,6 +1247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 0}
+  speedMultiplier: 1
 --- !u!50 &8911804661675712225
 Rigidbody2D:
   serializedVersion: 4

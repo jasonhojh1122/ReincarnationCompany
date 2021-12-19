@@ -654,6 +654,7 @@ MonoBehaviour:
   showBackpack: 0
   showMap: 1
   showMoney: 0
+  bgm: {fileID: 8300000, guid: 1204d1130f68a404383824636ef8109d, type: 3}
   canvas: {fileID: 1314268046}
 --- !u!4 &430846138
 Transform:
@@ -4069,8 +4070,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1179090132}
   m_HandleRect: {fileID: 1179090131}
   m_Direction: 2
-  m_Value: 0.99999696
-  m_Size: 0.9782608
+  m_Value: 1
+  m_Size: 0.9782609
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

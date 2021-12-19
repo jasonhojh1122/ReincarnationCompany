@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Material switchSceneMat;
     [SerializeField] float switchDur;
     [SerializeField] float holdDur;
+    [SerializeField] AudioSource bgmSource;
     SwitchSceneRendererFeature ssRendererFeature;
 
     float pastTime;
@@ -55,17 +56,14 @@ public class GameManager : MonoBehaviour
     void UnloadSceneFromAdditive() {
         sceneSettings.Pop();
         scenes.Pop();
-        // UserStateManager.Instance.LogState();
         SceneManager.UnloadSceneAsync(activeSceneName);
-        if (scenes.Count > 0) {
-            SceneManager.SetActiveScene(scenes.Peek());
-            OnSceneChange();
-        }
     }
 
     private IEnumerator UnloadSceneAnim() {
         yield return StartCoroutine(ToggleMask(true));
         UnloadSceneFromAdditive();
+        if (scenes.Count > 0)
+            OnSceneChange();
         yield return new WaitForSeconds(holdDur);
         yield return StartCoroutine(ToggleMask(false));
     }
@@ -113,6 +111,12 @@ public class GameManager : MonoBehaviour
         baseUI.Set(sceneSettings.Peek());
         if (sceneSettings.Peek().player != null)
             joyStick.Target = sceneSettings.Peek().player.MovingTarget;
+        if (sceneSettings.Peek().bgm != null) {
+            AudioManager.Instance.PlayBGM(sceneSettings.Peek().bgm);
+        }
+        else {
+            AudioManager.Instance.StopBGM();
+        }
         Debug.Log("Active Scene : " + activeSceneName);
     }
 
