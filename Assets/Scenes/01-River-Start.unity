@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 0}
-  speedMultiplier: 1.4
+  speedMultiplier: 1.2
 --- !u!61 &1511111572
 BoxCollider2D:
   m_ObjectHideFlags: 0

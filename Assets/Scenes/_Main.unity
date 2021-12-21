@@ -4388,7 +4388,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8911804661592735680, guid: 8168b381d5a6da1498293341dbcd6b9f, type: 3}
       propertyPath: speedMultiplier
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 8911804661592735683, guid: 8168b381d5a6da1498293341dbcd6b9f, type: 3}
       propertyPath: m_RootOrder

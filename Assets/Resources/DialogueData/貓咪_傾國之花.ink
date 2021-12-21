@@ -55,7 +55,7 @@
 
 === Choices2 ===
 
-+ [ 還是想當美人！ ] -> bebeauty
++ [ 我想當美人！ ] -> bebeauty
 + [ 那...我不要了。 ] -> giveup    
 
 

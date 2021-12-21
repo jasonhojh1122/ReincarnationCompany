@@ -38,7 +38,7 @@
 
 === Choices3===
 + [ 我不記得了... ] -> DontRemember
-+ [ ...多說說你的故事吧 ] -> Story    
++ [ 多說你的故事吧... ] -> Story    
     
 === DontRemember ===
 「啊...抱歉呢，我好像問了不該問的」

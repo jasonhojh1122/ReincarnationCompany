@@ -38,7 +38,7 @@
 -> choice_next
 
 === choice_next ===
-+ [ 能賺錢我就願意吃苦 ]-> yes
++ [ 能賺錢我就能吃苦 ]-> yes
 + [ 啊...真是辛苦了... ]-> talkend
 
 === yes ===
