@@ -4,13 +4,14 @@ using TMPro;
 
 public class CharacterSlot : ItemSlot {
 
-    static Color tint = new Color(95, 95, 95, 255);
+    static Color tint = new Color(0.37f, 0.37f, 0.37f, 1.0f);
     bool used;
 
     public override void UpdateContent() {
         used = UserStateManager.Instance.FinishedConversation.ContainsKey(itemData.itemName);
-        if (used) {
+        if (!used) {
             itemImage.color = tint;
+            button.onClick.RemoveAllListeners();
         }
         else {
             itemImage.color = Color.white;

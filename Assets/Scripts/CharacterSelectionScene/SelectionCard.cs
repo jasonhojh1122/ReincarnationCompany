@@ -8,6 +8,7 @@ namespace CharacterSelection {
 
         [SerializeField] public GameObject selectedIndicator;
         [SerializeField] UnityEngine.UI.Image charaterImage;
+        [SerializeField] TextMeshProUGUI characterName;
         [SerializeField] TextMeshProUGUI characterDescription;
         [SerializeField] TextMeshProUGUI conversationText;
         [SerializeField] public UnityEngine.UI.Button button;
@@ -23,6 +24,7 @@ namespace CharacterSelection {
 
         public void Init() {
             Utils.SpriteAndUI.FitSpriteToUIImage(charaterImage.rectTransform, charaterImage, characterData.baseData.sprite);
+            characterName.text = characterData.baseData.itemName;
             characterDescription.text = characterData.baseData.description;
             conversationText.text = "故事完成 " +
                 UserStateManager.Instance.FinishedConversation[characterData.baseData.itemName].ToHashSet().Count.ToString() +

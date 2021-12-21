@@ -29,6 +29,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e6d44b3c81eedfe4aa6faf9563685047, type: 2}
   - {fileID: 11400000, guid: bd9d155add343834c84e1b35e3c4d9d3, type: 2}
   - {fileID: 11400000, guid: d44beb8cca979b94db3fe1b7f9bee756, type: 2}
+  - {fileID: 11400000, guid: cd1d6702e5b25484587b1f73feffb2c1, type: 2}
+  - {fileID: 11400000, guid: 0e359806c9a5d104bbb0e3ac35a7f89c, type: 2}
+  - {fileID: 11400000, guid: 750545ba349a04f41b198772b188f6b7, type: 2}
+  - {fileID: 11400000, guid: 4fd7b50eff2bbbc44831b5e833c395ce, type: 2}
+  - {fileID: 11400000, guid: c59987562f42f894392b93085a7c6878, type: 2}
   shopItem:
   - {fileID: 11400000, guid: 7194bff2c5272dd4e99b64dd0686453f, type: 2}
   - {fileID: 11400000, guid: 3dfad4a303dad62498f50650c7d666b9, type: 2}

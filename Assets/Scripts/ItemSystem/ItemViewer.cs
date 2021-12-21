@@ -10,10 +10,14 @@ public abstract class ItemViewer : MonoBehaviour {
     [SerializeField] protected TextMeshProUGUI nameTextDisplay;
     [SerializeField] protected TextMeshProUGUI descriptionTextDisplay;
 
+    Vector2 imageDisplayDelta;
+
     protected List<ItemSlot> slots;
 
     private void Awake() {
         slots = new List<ItemSlot>();
+        if (imageDisplay != null)
+            imageDisplayDelta = imageDisplay.rectTransform.sizeDelta;
         InitContent();
     }
 
@@ -26,7 +30,9 @@ public abstract class ItemViewer : MonoBehaviour {
     }
 
     public virtual void Show(BaseItemData itemData) {
-        imageDisplay.sprite = itemData.sprite;
+        // imageDisplay.sprite = itemData.sprite;
+        imageDisplay.rectTransform.sizeDelta = imageDisplayDelta;
+        Utils.SpriteAndUI.FitSpriteToUIImage(imageDisplay.rectTransform, imageDisplay, itemData.sprite);
         nameTextDisplay.text = itemData.itemName;
         descriptionTextDisplay.text = itemData.description;
     }

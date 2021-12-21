@@ -27,4 +27,8 @@ public class StartUI : MonoBehaviour {
         AudioManager.Instance.SoundEffectVolume = value;
     }
 
+    public void ResetData() {
+        UserStateManager.Instance.ResetState();
+    }
+
 }

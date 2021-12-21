@@ -87,6 +87,11 @@ public sealed class UserStateManager {
         File.WriteAllText(dest, json);
     }
 
+    public void ResetState() {
+        state = new UserState();
+        SaveState();
+    }
+
     public void LogState() {
         Debug.Log(CurCharacter);
 

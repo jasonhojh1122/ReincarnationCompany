@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void UnloadScene() {
+        UserStateManager.Instance.SaveState();
         StartCoroutine(UnloadSceneAnim());
     }
 

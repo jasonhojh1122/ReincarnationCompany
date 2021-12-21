@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "\u72D7"
   m_EditorClassIdentifier: 
   itemName: "\u72D7"
-  description: "\u60A8\u662F\u4E00\u96BB\u53EF\u611B\u7684\u72D7\u52FE"
+  description: "\u4E00\u96BB\u53EF\u611B\u7684\u4E56\u72D7\u52FE"
   sprite: {fileID: 21300000, guid: e7ee3bfc1c2c87d4ab6f8cc7124db965, type: 3}
   animator: {fileID: 0}

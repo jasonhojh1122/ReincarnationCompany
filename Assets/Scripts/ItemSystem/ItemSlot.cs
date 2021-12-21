@@ -13,7 +13,8 @@ public class ItemSlot : MonoBehaviour {
 
     public virtual void Init(BaseItemData itemData) {
         this.itemData = itemData;
-        itemImage.sprite = itemData.sprite;
+        // itemImage.sprite = itemData.sprite;
+        Utils.SpriteAndUI.FitSpriteToUIImage(itemImage.rectTransform, itemImage, itemData.sprite);
         button = GetComponent<UnityEngine.UI.Button>();
         button.onClick.AddListener(delegate{ itemViewer.Show(itemData); });
         UpdateContent();

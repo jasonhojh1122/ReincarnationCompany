@@ -39,7 +39,7 @@ namespace CharacterSelection {
             UserStateManager.Instance.Money = activeCard.characterData.defaultMoney;
             UserStateManager.Instance.Backpack.ClearBackpack();
             UserStateManager.Instance.IsNewGame = false;
-            GameManager.Instance.LoadSceneAndClose("_Main");
+            GameManager.Instance.LoadSceneAndClose("_Start-Video");
         }
 
     }

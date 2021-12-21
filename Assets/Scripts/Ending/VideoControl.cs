@@ -23,7 +23,7 @@ public class VideoControl : MonoBehaviour
         videoPlayer.Play();
     }
 
-    void VideoEnd(UnityEngine.Video.VideoPlayer vp)
+    public void VideoEnd(UnityEngine.Video.VideoPlayer vp)
     {
         vp.Pause();
         GameManager.Instance.LoadSceneAndClose(loadSceneName);
