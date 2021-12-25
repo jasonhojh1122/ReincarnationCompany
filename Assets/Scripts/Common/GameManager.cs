@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator UnloadSceneAnim() {
         yield return StartCoroutine(ToggleMask(true));
         UnloadSceneFromAdditive();
+        Gesture.GestureManager.Instance.ClearQueue();
         if (scenes.Count > 0)
             OnSceneChange();
         yield return new WaitForSeconds(holdDur);
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadGameSceneAnim(string sceneName) {
         pastTime = 0.0f;
+        Gesture.GestureManager.Instance.ClearQueue();
         yield return StartCoroutine(ToggleMask(true));
         yield return StartCoroutine(LoadGameScene(sceneName));
         yield return new WaitForSeconds(Mathf.Clamp(holdDur - pastTime, 0.0f, holdDur));
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
         pastTime = 0.0f;
         yield return StartCoroutine(ToggleMask(true));
         UnloadSceneFromAdditive();
+        Gesture.GestureManager.Instance.ClearQueue();
         yield return StartCoroutine(LoadGameScene(sceneName));
         yield return new WaitForSeconds(Mathf.Clamp(holdDur - pastTime, 0.0f, holdDur));
         yield return StartCoroutine(ToggleMask(false));
@@ -108,7 +111,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneChange() {
         SceneManager.SetActiveScene(scenes.Peek());
         Time.timeScale = 1.0f;
-        Gesture.GestureManager.Instance.ClearQueue();
+        // Gesture.GestureManager.Instance.ClearQueue();
         baseUI.Set(sceneSettings.Peek());
         if (sceneSettings.Peek().player != null)
             joyStick.Target = sceneSettings.Peek().player.MovingTarget;

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 namespace Shop {
 public class Shop : MonoBehaviour {
     [SerializeField] TextMeshProUGUI countText;
+    [SerializeField] CanvasGroupFader hint;
+    [SerializeField] TextMeshProUGUI hintText;
     ShopItemData sid;
 
     int amount;
@@ -28,6 +30,7 @@ public class Shop : MonoBehaviour {
         if (UserStateManager.Instance.Money >= amount * sid.price) {
             UserStateManager.Instance.Money -= amount * sid.price;
             UserStateManager.Instance.Backpack.AddItemToBackpack(sid.baseData.name, amount);
+            StartCoroutine(HintAnim());
         }
     }
 
@@ -35,6 +38,13 @@ public class Shop : MonoBehaviour {
         this.sid = sid;
         amount = 1;
         UpdateText();
+    }
+
+    System.Collections.IEnumerator HintAnim() {
+        hintText.text = "已購買 " + sid.baseData.name + " x" + amount;
+        hint.FadeIn();
+        yield return new WaitForSeconds(0.6f);
+        hint.FadeOut();
     }
 
 }

@@ -16,7 +16,10 @@ namespace Character.NPC {
         public void Enter() {
             UserStateManager.Instance.Money -= price;
             Dialogue.DialogueManager.Instance.ExitDialogue();
-            GameManager.Instance.LoadSceneAndClose("01-River");
+            if (UserStateManager.Instance.FinishedConversation.Count == 1)
+                GameManager.Instance.LoadSceneAndClose("01-River-Tutorial");
+            else
+                GameManager.Instance.LoadSceneAndClose("01-River");
         }
 
 

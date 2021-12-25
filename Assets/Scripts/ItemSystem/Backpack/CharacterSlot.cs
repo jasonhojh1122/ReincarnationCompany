@@ -4,7 +4,7 @@ using TMPro;
 
 public class CharacterSlot : ItemSlot {
 
-    static Color tint = new Color(0.37f, 0.37f, 0.37f, 1.0f);
+    static Color tint = new Color(0.05f, 0.05f, 0.05f, 1.0f);
     bool used;
 
     public override void UpdateContent() {
