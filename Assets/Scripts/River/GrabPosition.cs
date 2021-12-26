@@ -36,6 +36,11 @@ namespace River {
             gesture.OnStart.AddListener(delegate{indicator.Show(gesture);});
             gesture.OnReset.AddListener(indicator.ResetCount);
 
+            var riverPlayer = (RiverPlayer) GameManager.Instance.SceneSettings.Peek().player;
+            gesture.OnStart.AddListener(riverPlayer.Catch);
+            gesture.OnFailed.AddListener(riverPlayer.Release);
+            gesture.OnSatisfied.AddListener(riverPlayer.Release);
+
             Gesture.GestureManager.Instance.Enqueue(gesture);
 
             col.enabled = false;

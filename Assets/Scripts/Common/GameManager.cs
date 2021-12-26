@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     public Character.Player ActivePlayer {
         get => SceneSetting.activeSceneSetting.player;
     }
+    public Stack<SceneSetting> SceneSettings {
+        get => sceneSettings;
+    }
 
     private void Awake() {
         _instance = this;

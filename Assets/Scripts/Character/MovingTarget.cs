@@ -8,7 +8,9 @@ namespace Character {
         FRONT,
         LEFT,
         RIGHT,
-        IDLE
+        IDLE,
+        PICK,
+        DEFAULT
     }
 
     [RequireComponent(typeof(Collider2D))]
@@ -107,6 +109,13 @@ namespace Character {
             }
             if (animatorControllers.ContainsKey(newState))
                 animator.runtimeAnimatorController = animatorControllers[newState];
+        }
+
+        public virtual void SetState(MovingState state) {
+            if (state == MovingState.DEFAULT)
+                animator.runtimeAnimatorController = null;
+            else
+                animator.runtimeAnimatorController = animatorControllers[state];
         }
 
     }

@@ -26,8 +26,12 @@ public class BrewViewer : ItemViewer {
         int i = 0;
         slotMap = new Dictionary<string, ItemSlot>();
         foreach (KeyValuePair<string, int> pair in UserStateManager.Instance.Backpack.backpackDict) {
+            Debug.Log(i + " " + pair.Key);
             if (i >= 6 && i % 2 == 0) {
-                bookShelves.Add(GameObject.Instantiate<Transform>(bookShelfPrefab));
+                Debug.Log(pair.Key);
+                var bookShelf = GameObject.Instantiate<Transform>(bookShelfPrefab);
+                bookShelf.SetParent(content, false);
+                bookShelves.Add(bookShelf);
             }
             var slot = GameObject.Instantiate<IngredientSlot>(brewIngredientSlotPrefab);
             slot.itemViewer = this;

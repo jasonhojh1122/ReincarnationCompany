@@ -687,7 +687,7 @@ MonoBehaviour:
       N \u6B21"
     focus: {fileID: 0}
     playableDirector: {fileID: 1693889900}
-  - text: "\u5FD8\u5DDD\u5076\u723E\u6703\u6F02\u4F86\u3010\u98DF\u6750\u3011\r\n\u9047\u5230\u5C31\u7576\u4F5C\u8CFA\u5230\u5427\uFF0C\u8D95\u5FEB\u7528\u4E00\u6A23\u7684\u65B9\u5F0F\u6253\u6488\uFF01\r\n"
+  - text: "\u5FD8\u5DDD\u5076\u723E\u6703\u6F02\u4F86\u3010\u98DF\u6750\u3011\r\n\u9047\u5230\u5C31\u7576\u8CFA\u5230\uFF0C\u8D95\u5FEB\u7528\u4E00\u6A23\u7684\u65B9\u5F0F\u6253\u6488\uFF01\r"
     focus: {fileID: 1274604112}
     playableDirector: {fileID: 0}
   - text: "\u5FD8\u5DDD\u7684\u8239\u96BB\u90FD\u662F\u6309\u6642\u79DF\u501F\r\n\u5F9E\u53F3\u4E0A\u89D2\u53EF\u4EE5\u78BA\u8A8D\u3010\u5269\u9918\u6642\u9593\u3011\r"
@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u5FD8\u5DDD\u5E38\u5E38\u51FA\u73FE\u3010\u5C0F\u5996\u602A\u3011\r\n\u79FB\u52D5\u8239\u96BB\u63A5\u8FD1\u3010\u5C0F\u5996\u602A\u3011\u5373\u53EF\u6253\u6488\r"
+  m_text: "\u5FD8\u5DDD\u5076\u723E\u6703\u6F02\u4F86\u3010\u98DF\u6750\u3011\r\n\u9047\u5230\u5C31\u7576\u8CFA\u5230\uFF0C\u8D95\u5FEB\u7528\u4E00\u6A23\u7684\u65B9\u5F0F\u6253\u6488\uFF01\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 603f09d96488eb7498abbfdf69f06982, type: 2}
   m_sharedMaterial: {fileID: 2848610574846133318, guid: 603f09d96488eb7498abbfdf69f06982, type: 2}
@@ -1780,11 +1780,11 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 30
+  m_lineSpacing: 15
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 20, y: 20, z: 10, w: 10}
+  m_margin: {x: 20, y: 15, z: 10, w: 15}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

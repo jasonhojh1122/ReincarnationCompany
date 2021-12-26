@@ -28,7 +28,6 @@ namespace Character {
 
         protected void SetupMovingTarget() {
             movingTarget.Speed = characterData.speed * speedMultiplier;
-            if (!movingTarget.HasFacing) return;
             foreach (string s in stateName) {
                 var controller = Utils.Loader.Load<RuntimeAnimatorController>(
                                     characterData.baseData.itemName + '_' + s);
