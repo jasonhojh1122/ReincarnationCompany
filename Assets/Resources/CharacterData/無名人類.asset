@@ -27,4 +27,4 @@ MonoBehaviour:
     position: {x: 2, y: 188, z: 0}
   life: 3
   speed: 10
-  defaultMoney: 1000
+  defaultMoney: 300
