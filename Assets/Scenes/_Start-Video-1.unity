@@ -157,7 +157,7 @@ MonoBehaviour:
   showBackpack: 0
   showMap: 0
   showMoney: 0
-  bgm: {fileID: 0}
+  bgm: {fileID: 8300000, guid: 89a36b7b9c287eb449f68a9c70884dc5, type: 3}
   canvas: {fileID: 0}
 --- !u!4 &430846138
 Transform:
@@ -276,7 +276,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
+  m_AudioOutputMode: 0
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:

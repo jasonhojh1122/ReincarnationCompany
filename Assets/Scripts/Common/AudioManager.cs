@@ -37,6 +37,9 @@ public class AudioManager : MonoBehaviour {
             audioSource.clip = clip;
             audioSource.Play();
         }
+        else if (audioSource.clip != null && audioSource.clip.name == clip.name && !audioSource.isPlaying) {
+            audioSource.Play();
+        }
     }
 
     public void StopBGM() {
