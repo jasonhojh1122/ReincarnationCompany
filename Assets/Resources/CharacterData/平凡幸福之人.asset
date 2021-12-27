@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: "\u5E73\u51E1\u5E78\u798F\u4E4B\u4EBA"
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: 4fd7b50eff2bbbc44831b5e833c395ce, type: 2}
-  rules: []
+  rules:
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: 7257836758f533a438b2338fb59b5cec, type: 2}
+    minAmount: 2
+    maxAmount: 2
   withStory: 0
   artWords: {fileID: 21300000, guid: 39c310fdf9de49c4f8abaeb9c2c162d4, type: 3}
   NPCs: []

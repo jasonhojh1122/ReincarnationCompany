@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: "\u5B5F\u5A46"
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: 750545ba349a04f41b198772b188f6b7, type: 2}
-  rules: []
+  rules:
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: fc2aba3db2529b943a9b95cc5491e1f4, type: 2}
+    minAmount: 1
+    maxAmount: 10
+  - ruleState: 0
+    itemData: {fileID: 11400000, guid: 7257836758f533a438b2338fb59b5cec, type: 2}
+    minAmount: 1
+    maxAmount: 10
   withStory: 0
   artWords: {fileID: 0}
   NPCs: []

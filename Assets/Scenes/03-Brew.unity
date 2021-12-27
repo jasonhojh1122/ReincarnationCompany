@@ -1284,8 +1284,12 @@ MonoBehaviour:
   characterData:
   - {fileID: 11400000, guid: 483669a09747dcd458af3615331d4d0b, type: 2}
   - {fileID: 11400000, guid: c26a3cb3a745aac4a94caa9c9e1bf4f6, type: 2}
-  - {fileID: 11400000, guid: b16399e6aa9c9324db17e260b709fa9c, type: 2}
   - {fileID: 11400000, guid: bfa93ca5ad841c245ae7ba7935c8496a, type: 2}
+  - {fileID: 11400000, guid: 14748a13b2565bf42a75aebbfcf6a803, type: 2}
+  - {fileID: 11400000, guid: 21cfbb8527ceb454aae48ce490a228c4, type: 2}
+  - {fileID: 11400000, guid: d465dc6dca00aa948a0cfbd021240040, type: 2}
+  - {fileID: 11400000, guid: 0122c79efd6e6da45917da1b8f3255b2, type: 2}
+  - {fileID: 11400000, guid: b16399e6aa9c9324db17e260b709fa9c, type: 2}
   - {fileID: 11400000, guid: b6487f6accc92d347886ea30db387cc5, type: 2}
   brewViewer: {fileID: 1505126631}
   player: {fileID: 0}
