@@ -95,8 +95,10 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator LoadStart() {
+        switchSceneMat.SetFloat("_OpenHeight", -0.1f);
         yield return StartCoroutine(LoadGameScene("_Start"));
         OnSceneChange();
+        switchSceneMat.SetFloat("_OpenHeight", 1.0f);
     }
 
     private IEnumerator LoadGameScene(string sceneName) {
@@ -109,6 +111,17 @@ public class GameManager : MonoBehaviour
         activeSceneName = sceneName;
         scenes.Push(SceneManager.GetSceneByName(activeSceneName));
         sceneSettings.Push(SceneSetting.activeSceneSetting);
+        if (sceneSettings.Peek().videoPlayer != null)
+        {
+            sceneSettings.Peek().videoPlayer.Prepare();
+            while (!sceneSettings.Peek().videoPlayer.isPrepared)
+            {
+                Debug.Log("Not Prepared.");
+                pastTime += Time.deltaTime;
+                yield return null;
+            }
+            sceneSettings.Peek().videoPlayer.Play();
+        }
     }
 
     private void OnSceneChange() {

@@ -7,11 +7,12 @@ public class VideoControl : MonoBehaviour
     [SerializeField] UnityEngine.Video.VideoPlayer videoPlayer;
     [SerializeField] string loadSceneName;
 
-    void Start()
+    void Awake()
     {
         videoPlayer.loopPointReached += VideoEnd;
-        videoPlayer.Prepare();
-        StartCoroutine(PlayVideo());
+        // videoPlayer.Play();
+        // videoPlayer.Prepare();
+        // StartCoroutine(PlayVideo());
     }
 
     IEnumerator PlayVideo()

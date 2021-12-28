@@ -24,7 +24,7 @@ namespace Character.NPC {
             set => dialogueJSON = value;
         }
 
-        static Dialogue.DialogueManager dialogueManager;
+        protected static Dialogue.DialogueManager dialogueManager;
 
         private new void Awake() {
             animator = GetComponent<Animator>();

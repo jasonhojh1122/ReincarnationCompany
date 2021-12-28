@@ -159,6 +159,7 @@ MonoBehaviour:
   showMoney: 0
   bgm: {fileID: 0}
   canvas: {fileID: 0}
+  videoPlayer: {fileID: 528499837}
 --- !u!4 &430846138
 Transform:
   m_ObjectHideFlags: 0

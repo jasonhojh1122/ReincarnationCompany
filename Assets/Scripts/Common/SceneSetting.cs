@@ -17,6 +17,8 @@ public class SceneSetting : MonoBehaviour {
 
     public static SceneSetting activeSceneSetting;
 
+    public UnityEngine.Video.VideoPlayer videoPlayer;
+
     private void Awake() {
         activeSceneSetting = this;
     }

@@ -159,6 +159,7 @@ MonoBehaviour:
   showMoney: 0
   bgm: {fileID: 0}
   canvas: {fileID: 0}
+  videoPlayer: {fileID: 528499837}
 --- !u!4 &430846138
 Transform:
   m_ObjectHideFlags: 0
@@ -265,7 +266,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528499834}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: e1b124c4908996443a038bba311799db, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 137b55688c0ad674eb4280a2bb49dfc3, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}

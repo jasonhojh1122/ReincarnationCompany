@@ -9,6 +9,7 @@ namespace Character.NPC
         }
 
         public void End() {
+            dialogueManager.ExitDialogue();
             GameManager.Instance.LoadSceneAndClose("_Main");
         }
 

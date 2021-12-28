@@ -159,6 +159,7 @@ MonoBehaviour:
   showMoney: 0
   bgm: {fileID: 8300000, guid: 89a36b7b9c287eb449f68a9c70884dc5, type: 3}
   canvas: {fileID: 0}
+  videoPlayer: {fileID: 528499837}
 --- !u!4 &430846138
 Transform:
   m_ObjectHideFlags: 0
@@ -264,7 +265,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528499834}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5ab07069f3e23cd478c283b28bb684a1, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: fa8f6f2ee02b70945b5286c4df441db2, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -285,7 +286,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
   m_WaitForFirstFrame: 1
